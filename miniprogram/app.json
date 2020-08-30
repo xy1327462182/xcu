@@ -1,25 +1,48 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib",
-    "pages/openapi/openapi",
-    "pages/openapi/serverapi/serverapi",
-    "pages/openapi/callback/callback",
-    "pages/openapi/cloudid/cloudid",
-    "pages/im/im",
-    "pages/im/room/room"
+    "pages/discover/index",
+    "pages/localFood/index",
+    "pages/user/index",
+    "pages/searchPage/index",
+    "pages/demo1/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarBackgroundColor": "#25dbe6",
+    "navigationBarTitleText": "许院生活",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./tabBarIco/home1.png",
+        "selectedIconPath": "./tabBarIco/home2.png"
+      },
+      {
+        "pagePath": "pages/localFood/index",
+        "text": "美食",
+        "iconPath": "./tabBarIco/shopcar1.png",
+        "selectedIconPath": "./tabBarIco/shopcar2.png"
+      },
+      {
+        "pagePath": "pages/discover/index",
+        "text": "发现",
+        "iconPath": "./tabBarIco/cate1.png",
+        "selectedIconPath": "./tabBarIco/cate2.png"
+      },
+      {
+        "pagePath": "pages/user/index",
+        "text": "我的",
+        "iconPath": "./tabBarIco/mine1.png",
+        "selectedIconPath": "./tabBarIco/mine2.png"
+      }
+    ],
+    "color": "#333",
+    "selectedColor": "#25dbe6"
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"

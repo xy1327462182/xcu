@@ -1,0 +1,87 @@
+.index_header {
+	background-color: #25dbe6;
+	display: flex;
+	justify-content: space-between;
+	.index_weather {
+		flex: 2;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+		.weather_temperature_wrap {
+			width: 100%;
+			.weather_temperature {
+				color: #fff;
+				font-weight: 600;
+				font-size: 36rpx;
+				margin-right: 8rpx;
+			}
+		}
+		.weather_site {
+			font-size: 24rpx;
+			color: #fff;
+		}
+	}
+	.index_search {
+		flex: 7;
+		height: 70rpx;
+		display: flex;
+		justify-content: flex-end;
+		.index_search_wrap {
+			padding: 0 12rpx;
+			width: 100%;
+			height: 70rpx;
+		}
+	}
+}
+
+.index_swiper {
+	position: relative;
+	width: 100%;
+	height: 200rpx;
+	background-color: #25dbe6;
+	border-bottom-right-radius: 70rpx;
+	border-bottom-left-radius: 70rpx;
+	margin-bottom: 150rpx;
+	.index_swiper_wrap {
+		position: absolute;
+		left: 50%;
+		top: 30rpx;
+		transform: translateX(-50%);
+		width: 90%;
+		swiper {
+			width: 100%;
+			height: 36vw;
+			swiper-item {
+				width: 100%;
+				height: 36vw;
+				border-radius: 20rpx;
+				overflow: hidden;
+				navigator {
+					width: 100%;
+					height: 100%;
+					.sw_img {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
+
+.index_nav {
+	display: flex;
+	navigator {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		.iconfont {
+            font-size: 38rpx;
+		}
+		.nav_txt {
+            font-size: 28rpx;
+		}
+	}
+}
