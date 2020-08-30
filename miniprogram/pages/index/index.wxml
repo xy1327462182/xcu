@@ -5,7 +5,7 @@
     <!-- 天气上半部分 -->
     <view class="weather_temperature_wrap">
       <text class="weather_temperature">33℃</text>
-      <text class="weather_temperature">多云</text>
+      <text class="weather_temperature_status">多云</text>
     </view>
     <!-- 天气下半部分 -->
     <view class="weather_site">许昌市</view>
@@ -39,8 +39,14 @@
   <navigator 
   wx:for="{{indexNavList}}"
   wx:key="name"
+  url="{{item.linkPath}}"
   >
     <view class="iconfont {{item.iconClassName}}"></view>
     <view class="nav_txt">{{item.name}}</view>
   </navigator>
 </view>
+
+<!-- 楼层模块 -->
+<view class="floor_wrap">
+  <floor></floor>
+</view>  
