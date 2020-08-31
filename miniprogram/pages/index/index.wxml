@@ -48,5 +48,6 @@
 
 <!-- 楼层模块 -->
 <view class="floor_wrap">
-  <floor></floor>
+  <!-- 优质动态 -->
+  <trendsList></trendsList>
 </view>  

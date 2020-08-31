@@ -28,7 +28,6 @@ Page({
         this.setData({
           indexNavList: res.data
         })
-        console.log(this.data.indexNavList)
       })
   },
 

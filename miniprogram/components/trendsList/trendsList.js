@@ -1,4 +1,4 @@
-// components/floor/floor.js
+// components/trendsList/trendsList.js
 Component({
   /**
    * 组件的属性列表

@@ -1,6 +1,6 @@
 {
   "usingComponents": {
     "searchInput": "../../components/searchInput/searchInput",
-    "floor": "../../components/floor/floor"
+    "trendsList": "../../components/trendsList/trendsList"
   }
 }

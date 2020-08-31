@@ -1,0 +1,32 @@
+<view class="trends">
+  <view class="tr_title">优质动态</view>
+
+  <view class="tr_content">
+
+    <navigator class="tr_item">
+      <!-- 图片 -->
+      <view class="tr_item_img_wrap">
+        <image></image>
+      </view>
+      <!-- 标题 -->
+      <view class="tr_item_title">晓看天色暮云啊</view>
+      <!-- 便签 -->
+      <view class="tr_item_notes">
+        <text>#摄影美图分享#</text>
+      </view>
+      <!-- 作者 -->
+      <view class="tr_item_author_wrap">
+        <view class="author_avatar_wrap">
+          <text class="author_avatar"></text>
+          <text class="author_name"></text>
+        </view>
+
+        <view class="support_wrap">
+          <text></text>
+          <text>10</text>
+        </view>
+      </view>
+    </navigator>
+
+  </view>
+</view>
