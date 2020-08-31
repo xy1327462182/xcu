@@ -50,4 +50,7 @@
 <view class="floor_wrap">
   <!-- 优质动态 -->
   <trendsList></trendsList>
+
+  <!-- 优质二手商品 -->
+  <goodsList></goodsList>
 </view>  

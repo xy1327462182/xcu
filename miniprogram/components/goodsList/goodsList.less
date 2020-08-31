@@ -1,0 +1,85 @@
+@import '../../style/iconfont.wxss';
+
+.goods {
+	// background-color: #f3f5f9;
+	.gd_title {
+		width: 100%;
+		height: 90rpx;
+		font-size: 34rpx;
+		font-weight: 600;
+		padding: 20rpx;
+	}
+	.gd_content {
+		width: 100%;
+		padding: 20rpx;
+		display: flex;
+		flex-flow: row wrap;
+		.gd_content_item {
+			width: 50%;
+			border-right: 16rpx solid #fff;
+			border-left: 8rpx solid #fff;
+			.gd_item {
+				width: 100%;
+                border-radius: 20rpx;
+                margin-bottom: 46rpx;
+                overflow: hidden;
+                .gd_item_img_wrap{
+                    background-color: #eef;
+                }
+				.gd_item_btm {
+					padding: 0 16rpx;
+					background-color: #eef;
+					.gd_item_title {
+						color: #000;
+						font-size: 34rpx;
+						font-weight: 500;
+						margin: 0;
+						display: -webkit-box;
+						overflow: hidden;
+						-webkit-box-orient: vertical;
+						-webkit-line-clamp: 2;
+					}
+					.gd_price_wrap {
+						display: flex;
+						justify-content: space-between;
+						align-items: center;
+						padding: 14rpx 0;
+						border-bottom: 1rpx solid #ddd;
+						.gd_price {
+							color: #ff3b30;
+							font-weight: 550;
+							font-size: 36rpx;
+						}
+						.hot_num {
+							color: #888;
+							font-size: 28rpx;
+						}
+					}
+					.gd_seller_wrap {
+                        display: flex;
+                        align-items: center;
+                        padding: 20rpx 10rpx;
+                        .gd_seller_avatar {
+                            width: 60rpx;
+                            height: 60rpx;
+                            border-radius: 8rpx;
+                            margin-right: 10rpx;
+                            overflow: hidden;
+                            .seller_avatar{
+                                width: 100%;
+                                height: 100%;
+                            }
+						}
+						.gd_seller_name {
+                            font-size: 32rpx;
+						}
+					}
+				}
+			}
+		}
+		&:nth-child(2n) {
+			border-right: 8rpx solid #fff;
+			border-left: 16rpx solid #fff;
+		}
+	}
+}

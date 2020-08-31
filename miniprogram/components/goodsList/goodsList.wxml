@@ -1,0 +1,108 @@
+<view class="goods">
+	<view class="gd_title">优质二手商品</view>
+	<view class="gd_content">
+		<!-- 左侧 -->
+		<view class="gd_content_item">
+			<navigator class="gd_item">
+				<!-- 图片 -->
+				<view class="gd_item_img_wrap">
+					<image mode="widthFix" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/goods_swiper01.jpg"></image>
+				</view>
+				<view class="gd_item_btm">
+					<!-- 标题 -->
+					<view class="gd_item_title">2020夏装新款时尚系带领清新雪纺裙子修身中长裙印花连衣裙 A43粉带多色</view>
+					<!-- 价格 -->
+					<view class="gd_price_wrap">
+						<view class="gd_price">￥169</view>
+						<view class="hot_num">10人想要</view>
+					</view>
+					<!-- 卖家 -->
+					<view class="gd_seller_wrap">
+						<view class="gd_seller_avatar">
+							<image class="seller_avatar" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/avatar.jpg"></image>
+						</view>
+						<view class="gd_seller_name">卷卷柠檬</view>
+					</view>
+				</view>
+
+			</navigator>
+
+      <navigator class="gd_item">
+				<!-- 图片 -->
+				<view class="gd_item_img_wrap">
+					<image mode="widthFix" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/2156569324352352.jpg"></image>
+				</view>
+				<view class="gd_item_btm">
+					<!-- 标题 -->
+					<view class="gd_item_title">2020夏装新款时尚系带领清新雪纺裙子修身中长裙印花连衣裙 A43粉带多色</view>
+					<!-- 价格 -->
+					<view class="gd_price_wrap">
+						<view class="gd_price">￥169</view>
+						<view class="hot_num">10人想要</view>
+					</view>
+					<!-- 卖家 -->
+					<view class="gd_seller_wrap">
+						<view class="gd_seller_avatar">
+							<image class="seller_avatar" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/avatar.jpg"></image>
+						</view>
+						<view class="gd_seller_name">卷卷柠檬</view>
+					</view>
+				</view>
+
+			</navigator>
+
+		</view>
+
+		<!-- 右侧 -->
+		<view class="gd_content_item">
+			<navigator class="gd_item">
+				<!-- 图片 -->
+				<view class="gd_item_img_wrap">
+					<image mode="widthFix" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/2636234142.jpg"></image>
+				</view>
+				<view class="gd_item_btm">
+					<!-- 标题 -->
+					<view class="gd_item_title">2020夏装新款时尚系带领清新雪纺裙子修身中长裙印花连衣裙 A43粉带多色</view>
+					<!-- 价格 -->
+					<view class="gd_price_wrap">
+						<view class="gd_price">￥169</view>
+						<view class="hot_num">10人想要</view>
+					</view>
+					<!-- 卖家 -->
+					<view class="gd_seller_wrap">
+						<view class="gd_seller_avatar">
+							<image class="seller_avatar" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/avatar.jpg"></image>
+						</view>
+						<view class="gd_seller_name">卷卷柠檬</view>
+					</view>
+				</view>
+
+			</navigator>
+      
+      <navigator class="gd_item">
+				<!-- 图片 -->
+				<view class="gd_item_img_wrap">
+					<image mode="widthFix" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/goods_swiper02.jpg"></image>
+				</view>
+				<view class="gd_item_btm">
+					<!-- 标题 -->
+					<view class="gd_item_title">2020夏装新款时尚系带领清新雪纺裙子修身中长裙印花连衣裙 A43粉带多色</view>
+					<!-- 价格 -->
+					<view class="gd_price_wrap">
+						<view class="gd_price">￥169</view>
+						<view class="hot_num">10人想要</view>
+					</view>
+					<!-- 卖家 -->
+					<view class="gd_seller_wrap">
+						<view class="gd_seller_avatar">
+							<image class="seller_avatar" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/avatar.jpg"></image>
+						</view>
+						<view class="gd_seller_name">卷卷柠檬</view>
+					</view>
+				</view>
+
+			</navigator>
+		</view>
+
+	</view>
+</view>
