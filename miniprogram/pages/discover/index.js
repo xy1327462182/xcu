@@ -5,7 +5,34 @@ Page({
    * 页面的初始数据
    */
   data: {
+    disTabsList: [
+      {
+        name: "好物",
+        isActive: false,
+        id:0
+      },
+      {
+        name: "动态",
+        isActive: true,
+        id:1
+      },
+      {
+        name: "好书",
+        isActive: false,
+        id:2
+      }
+    ]
+  },
 
+  handelTabChange(e){
+    let {id}=e.currentTarget.dataset
+    let {disTabsList}=this.data
+    disTabsList.forEach(v=>{
+      v.id === id ? v.isActive=true:v.isActive=false
+    })
+    this.setData({
+      disTabsList
+    })
   },
 
   /**
