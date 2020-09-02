@@ -1,2 +1,149 @@
-<!--pages/user/index.wxml-->
-<text>pages/user/index.wxml</text>
+<!-- 顶部右侧设置按钮 -->
+<view class="setting_wrap">
+  <view class="iconfont icon-6" bindtap="zhuxaio"></view>
+</view>
+
+<!-- 用户信息部分 -->
+<block wx:if="{{!uInfo._openid}}">
+  <button 
+  class="user_info_wrap"
+  open-type="getUserInfo"
+  bindgetuserinfo="handelGetUserInfo"
+  >
+    <image class="user_info_avatar" mode="widthFix" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/common/default_avatar.png"></image>
+    <view class="user_name_wrap">
+      还没登录哦，点击注册/登录
+    </view>
+  </button>
+</block>
+<block wx:else>
+    <view class="user_info_wrap">
+      <image class="user_info_avatar" mode="widthFix" src="{{uInfo.avatarUrl}}"></image>
+    <view class="user_name_wrap">
+      <text class="user_name">{{uInfo.nickName}}</text>
+      <text class="user_school" wx:if="uInfo.school">{{uInfo.school}}</text>
+    </view>
+    </view>
+</block>
+
+
+<!-- 用户数据展示 -->
+<view class="user_data">
+  <view class="user_data_item">
+    <text class="data_num">{{uInfo.fans}}</text>
+    <text class="data_name">粉丝</text>
+  </view>
+  <view class="user_data_item">
+    <text class="data_num">{{uInfo.follow}}</text>
+    <text class="data_name">关注</text>
+  </view>
+  <view class="user_data_item">
+    <text class="data_num">{{uInfo.supports}}</text>
+    <text class="data_name">获赞</text>
+  </view>
+</view>
+
+<!-- 各个工具模块 -->
+<view class="tools_item_wrap">
+  <!-- 常用工具 -->
+  <view class="commonly_tools_wrap">
+    <view class="commonly_tools_title">常用工具</view>
+    <view class="commonly_tools_content">
+      <navigator class="commonly_tools_item">
+        <text class="iconfont icon-shoucang1"></text>
+        <text class="tools_item_txt">我的收藏</text>
+      </navigator>
+      <navigator class="commonly_tools_item">
+        <text class="iconfont icon-shoucang1"></text>
+        <text class="tools_item_txt">我的日历</text>
+      </navigator>
+      <navigator class="commonly_tools_item">
+        <text class="iconfont icon-shoucang1"></text>
+        <text class="tools_item_txt">动态</text>
+      </navigator>
+      <navigator class="commonly_tools_item">
+        <text class="iconfont icon-shoucang1"></text>
+        <text class="tools_item_txt">课表</text>
+      </navigator>
+      <navigator class="commonly_tools_item">
+        <text class="iconfont icon-shoucang1"></text>
+        <text class="tools_item_txt">我的收藏</text>
+      </navigator>
+      <navigator class="commonly_tools_item">
+        <text class="iconfont icon-shoucang1"></text>
+        <text class="tools_item_txt">我的日历</text>
+      </navigator>
+      <navigator class="commonly_tools_item">
+        <text class="iconfont icon-shoucang1"></text>
+        <text class="tools_item_txt">动态</text>
+      </navigator>
+      <navigator class="commonly_tools_item">
+        <text class="iconfont icon-shoucang1"></text>
+        <text class="tools_item_txt">课表</text>
+      </navigator>
+    </view>
+
+  </view>
+
+  <!-- 课表 -->
+  <view class="timetable_wrap">
+    <view class="timetable_title">我的课表</view>
+    <view class="timetable_date">9月2日 今天共4门课</view>
+    <view class="timetable_content">
+      <view class="none_timetable_wrap">
+        <view>今天和明天都没有课哦</view>
+        <view>做一些自己喜欢的事充实一下吧</view>
+      </view>
+      <view class="none_timetable_img_wrap">
+        <image class="none_timetable_img" mode="widthFix"  src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/avatar.jpg"></image>
+      </view>
+      
+    </view>
+  </view>
+
+  <!-- 底部功能栏 -->
+  <view class="btm_tools_tab">
+    <navigator class="btm_tools_item">
+      <view class="btm_tools_name_wrap">
+        <text class="iconfont icon-zhifu-01"></text>
+        <text class="btm_tools_name">签到领钱</text>
+      </view>
+      <view class="btm_tools_arrow iconfont icon-iconzhengli_fenxiang"></view>
+    </navigator>
+    <navigator class="btm_tools_item">
+      <view class="btm_tools_name_wrap">
+        <text class="iconfont icon-zhifu-01"></text>
+        <text class="btm_tools_name">签到领钱</text>
+      </view>
+      <view class="btm_tools_arrow iconfont icon-iconzhengli_fenxiang"></view>
+    </navigator>
+    <navigator class="btm_tools_item">
+      <view class="btm_tools_name_wrap">
+        <text class="iconfont icon-zhifu-01"></text>
+        <text class="btm_tools_name">发布二手</text>
+      </view>
+      <view class="btm_tools_arrow iconfont icon-iconzhengli_fenxiang"></view>
+    </navigator>
+    <navigator class="btm_tools_item">
+      <view class="btm_tools_name_wrap">
+        <text class="iconfont icon-zhifu-01"></text>
+        <text class="btm_tools_name">好书推荐</text>
+      </view>
+      <view class="btm_tools_arrow iconfont icon-iconzhengli_fenxiang"></view>
+    </navigator>
+    <navigator class="btm_tools_item">
+      <view class="btm_tools_name_wrap">
+        <text class="iconfont icon-zhifu-01"></text>
+        <text class="btm_tools_name">好物推荐</text>
+      </view>
+      <view class="btm_tools_arrow iconfont icon-iconzhengli_fenxiang"></view>
+    </navigator>
+    <navigator class="btm_tools_item">
+      <view class="btm_tools_name_wrap">
+        <text class="iconfont icon-zhifu-01"></text>
+        <text class="btm_tools_name">动态这是</text>
+      </view>
+      <view class="btm_tools_arrow iconfont icon-iconzhengli_fenxiang"></view>
+    </navigator>
+  </view>
+</view>

@@ -1,1 +1,151 @@
 /* pages/user/index.wxss */
+page {
+  background-color: #f2f2f2;
+}
+page .setting_wrap {
+  width: 100%;
+  height: 70rpx;
+  background-color: #25dbe6;
+  line-height: 70rpx;
+  padding: 0 30rpx;
+}
+page .setting_wrap .iconfont {
+  color: #fff;
+  float: right;
+  font-size: 38rpx;
+}
+page .user_info_wrap {
+  width: 100%;
+  background: linear-gradient(#25dbe6, #09aec1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+page .user_info_wrap .user_info_avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin: 20rpx 0 36rpx 0;
+}
+page .user_info_wrap .user_name_wrap {
+  color: #fff;
+  margin-bottom: 40rpx;
+}
+page .user_info_wrap .user_name_wrap .user_name {
+  font-size: 38rpx;
+  font-weight: 600;
+  margin: 0 10rpx;
+}
+page .user_info_wrap .user_name_wrap .user_school {
+  font-size: 30rpx;
+  margin: 0 10rpx;
+}
+page .user_data {
+  width: 100%;
+  height: 100rpx;
+  background-color: #09aec1;
+  display: flex;
+  padding: 26rpx 0 40rpx;
+  border-bottom-right-radius: 30rpx;
+  border-bottom-left-radius: 30rpx;
+}
+page .user_data .user_data_item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+page .user_data .user_data_item .data_num {
+  font-size: 40rpx;
+  font-weight: 700;
+}
+page .user_data .user_data_item .data_name {
+  font-size: 24rpx;
+  margin: 10rpx 0;
+}
+page .tools_item_wrap {
+  width: 100%;
+  padding-top: 20rpx;
+}
+page .tools_item_wrap .commonly_tools_wrap {
+  width: 100%;
+  background-color: #fff;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+}
+page .tools_item_wrap .commonly_tools_wrap .commonly_tools_title {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+page .tools_item_wrap .commonly_tools_wrap .commonly_tools_content {
+  display: flex;
+  flex-flow: row wrap;
+}
+page .tools_item_wrap .commonly_tools_wrap .commonly_tools_content .commonly_tools_item {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24rpx;
+}
+page .tools_item_wrap .commonly_tools_wrap .commonly_tools_content .commonly_tools_item .iconfont {
+  font-size: 50rpx;
+}
+page .tools_item_wrap .commonly_tools_wrap .commonly_tools_content .commonly_tools_item .tools_item_txt {
+  font-size: 28rpx;
+  margin-top: 8rpx;
+}
+page .tools_item_wrap .timetable_wrap {
+  width: 100%;
+  background-color: #fff;
+  padding: 30rpx;
+  margin-bottom: 30rpx;
+}
+page .tools_item_wrap .timetable_wrap .timetable_title {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+page .tools_item_wrap .timetable_wrap .timetable_date {
+  margin: 18rpx 0;
+  font-size: 26rpx;
+  color: #999;
+}
+page .tools_item_wrap .timetable_wrap .timetable_content {
+  display: flex;
+}
+page .tools_item_wrap .timetable_wrap .timetable_content .none_timetable_wrap {
+  flex: 2;
+  font-size: 30rpx;
+  color: #666;
+}
+page .tools_item_wrap .timetable_wrap .timetable_content .none_timetable_wrap view {
+  margin: 10rpx 0;
+}
+page .tools_item_wrap .timetable_wrap .timetable_content .none_timetable_img_wrap {
+  flex: 1;
+}
+page .tools_item_wrap .timetable_wrap .timetable_content .none_timetable_img_wrap .none_timetable_img {
+  width: 200rpx;
+}
+page .tools_item_wrap .btm_tools_tab {
+  width: 100%;
+  background-color: #fff;
+  padding: 0 30rpx;
+  margin-bottom: 30rpx;
+}
+page .tools_item_wrap .btm_tools_tab .btm_tools_item {
+  width: 100%;
+  height: 100rpx;
+  border-bottom: 0.8rpx solid #efefef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+page .tools_item_wrap .btm_tools_tab .btm_tools_item .btm_tools_name_wrap .btm_tools_name {
+  margin-left: 30rpx;
+  font-size: 34rpx;
+}

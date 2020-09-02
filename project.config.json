@@ -66,6 +66,13 @@
 					"id": -1,
 					"name": "发现页",
 					"pathName": "pages/discover/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/user/index",
 					"scene": null
 				}
 			]
