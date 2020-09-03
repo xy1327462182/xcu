@@ -1,5 +1,9 @@
 //app.js
 App({
+
+  globalData: {
+    aabb: 1
+  },
   onLaunch: function () {
     
     if (!wx.cloud) {
@@ -15,6 +19,7 @@ App({
       })
     }
 
-    this.globalData = {}
+    this.globalData = {
+    }
   }
 })

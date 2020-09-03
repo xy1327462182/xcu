@@ -1,12 +1,12 @@
 <!-- 顶部右侧设置按钮 -->
 <view class="setting_wrap">
-  <view class="iconfont icon-6" bindtap="zhuxaio"></view>
+  <navigator class="iconfont icon-shezhi" url="/pages/userSetting/index"></navigator>
 </view>
 
 <!-- 用户信息部分 -->
 <block wx:if="{{!uInfo._openid}}">
-  <button 
-  class="user_info_wrap"
+  <view class="user_info_wrap">
+    <button 
   open-type="getUserInfo"
   bindgetuserinfo="handelGetUserInfo"
   >
@@ -15,6 +15,7 @@
       还没登录哦，点击注册/登录
     </view>
   </button>
+  </view>
 </block>
 <block wx:else>
     <view class="user_info_wrap">
@@ -30,15 +31,15 @@
 <!-- 用户数据展示 -->
 <view class="user_data">
   <view class="user_data_item">
-    <text class="data_num">{{uInfo.fans}}</text>
+    <text class="data_num">{{uInfo.fans?uInfo.fans:'0'}}</text>
     <text class="data_name">粉丝</text>
   </view>
   <view class="user_data_item">
-    <text class="data_num">{{uInfo.follow}}</text>
+    <text class="data_num">{{uInfo.follow?uInfo.follow:'0'}}</text>
     <text class="data_name">关注</text>
   </view>
   <view class="user_data_item">
-    <text class="data_num">{{uInfo.supports}}</text>
+    <text class="data_num">{{uInfo.supports?uInfo.follow:'0'}}</text>
     <text class="data_name">获赞</text>
   </view>
 </view>

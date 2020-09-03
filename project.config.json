@@ -73,6 +73,13 @@
 					"id": -1,
 					"name": "我的",
 					"pathName": "pages/user/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "用户设置",
+					"pathName": "pages/userSetting/index",
 					"scene": null
 				}
 			]

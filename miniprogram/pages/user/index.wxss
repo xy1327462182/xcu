@@ -7,12 +7,12 @@ page .setting_wrap {
   height: 70rpx;
   background-color: #25dbe6;
   line-height: 70rpx;
-  padding: 0 30rpx;
+  padding: 0 50rpx;
 }
 page .setting_wrap .iconfont {
   color: #fff;
   float: right;
-  font-size: 38rpx;
+  font-size: 40rpx;
 }
 page .user_info_wrap {
   width: 100%;
@@ -21,6 +21,11 @@ page .user_info_wrap {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 0;
+}
+page .user_info_wrap button {
+  width: 100%;
+  background: linear-gradient(#25dbe6, #09aec1);
 }
 page .user_info_wrap .user_info_avatar {
   width: 120rpx;

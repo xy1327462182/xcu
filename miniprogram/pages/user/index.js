@@ -32,6 +32,7 @@ Page({
             _openid: uid
           }).get()
             .then(res2=>{
+              //用户没注册过  获取信息 添加到数据库
               if (res2.data.length===0) {
                 //用户没注册过 
                   //获取信息 添加到数据库
@@ -66,10 +67,11 @@ Page({
        
   },
 
-  //获取缓存中的登录信息 设置到data中
+  //获取缓存中的登录信息 设置到app.globalData中
   getLoginInfo(){
     let that=this
     let res=wx.getStorageSync('userLogin')
+    //如果缓存中有
     if (res._openid) {
       //是登录状态
       //从数据库中查询数据
@@ -80,27 +82,19 @@ Page({
         },
         success:data=>{
           let uInfo=data.result.data[0]
+          app.globalData.uInfo=uInfo
           that.setData({
             uInfo
           })
         }
       })
-      //将数据设置到data中
-      // this.setData({
-      //   uInfo: res
-      // })
+    } else {
+      that.setData({
+        uInfo: null
+      })
     }
   },
 
-  //注销登录
-  zhuxaio(){
-    wx.removeStorage({
-      key: "userLogin"
-    })
-    this.setData({
-      uInfo: null
-    })
-  },
   
   /**
    * 生命周期函数--监听页面加载
