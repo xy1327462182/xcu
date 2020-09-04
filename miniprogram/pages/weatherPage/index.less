@@ -1,0 +1,80 @@
+.weather_page{
+    .wea_hd{
+        position: relative;
+        width: 100%;
+        height: 764rpx;
+        .wea_hd_img{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .wea_pos{
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 9;
+            width: 100%;
+            height: 120rpx;
+            display: flex;
+            padding: 0 40rpx;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+            .wea_pos_city{
+                font-size: 50rpx;
+                .iconfont{
+                    font-size: 44rpx;
+                }
+            }
+        }
+        .today_wea{
+            width: 100%;
+            position: absolute;
+            left: 0;
+            top: 220rpx;
+            padding: 0 40rpx;
+            color: #fff;
+            .today_temp{
+                font-size: 100rpx;
+                font-weight: 600;
+            }
+            .today_condition{
+                margin-top: 40rpx;
+                font-size: 40rpx;
+            }
+        }
+        .today_wind_wrap{
+            width: 100%;
+            height: 120rpx;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            z-index: 9;
+            .today_wind_item{
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+    .three_wrap{
+        width: 100%;
+        height: 470rpx;
+        border-bottom: 20rpx solid #fefefe;
+        .three_item{
+            width: 100%;
+            height: 150rpx;
+            padding: 0 40rpx;
+            border-bottom: 1px solid #aacaf1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #4ec2e2;
+        }
+    }
+}

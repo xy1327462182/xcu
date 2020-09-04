@@ -1,7 +1,19 @@
 /**
  * 将wx原生api进行promise化封装
  */
-
+export const request=(options)=>{
+  return new Promise((resolve, reject)=>{
+    wx.request({
+      ...options, 
+      success: res=>{
+        resolve(res)
+      },
+      error: err=>{
+        reject(err)
+      }
+    })
+  })
+}
 
 
 export const getSetting=()=>{

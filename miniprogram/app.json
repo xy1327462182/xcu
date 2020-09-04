@@ -6,7 +6,8 @@
     "pages/user/index",
     "pages/searchPage/index",
     "pages/demo1/index",
-    "pages/userSetting/index"
+    "pages/userSetting/index",
+    "pages/weatherPage/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -46,5 +47,10 @@
     "selectedColor": "#25dbe6"
   },
   "sitemapLocation": "sitemap.json",
-  "style": "v2"
+  "style": "v2",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序获取天气"
+    }
+  }
 }

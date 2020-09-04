@@ -1,16 +1,16 @@
 <!-- 顶部搜索框部分 -->
 <view class="index_header">
   <!-- 天气模块 -->
-  <view class="index_weather">
+  <navigator url="/pages/weatherPage/index?city={{locationId}}" class="index_weather">
     <!-- 天气上半部分 -->
     <view class="weather_temperature_wrap">
-      <text class="weather_temperature">33℃</text>
-      <text class="weather_temperature_status">多云</text>
+      <text class="weather_temperature">{{weatherMsg.temp}}℃</text>
+      <text class="weather_temperature_status">{{weatherMsg.text}}</text>
     </view>
     <!-- 天气下半部分 -->
-    <view class="weather_site">许昌市</view>
+    <view class="weather_site">{{city}}</view>
 
-  </view>
+  </navigator>
 
   <!-- 搜索模块 -->
   <view class="index_search">

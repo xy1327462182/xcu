@@ -80,6 +80,13 @@
 					"id": -1,
 					"name": "用户设置",
 					"pathName": "pages/userSetting/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "天气页",
+					"pathName": "pages/weatherPage/index",
 					"scene": null
 				}
 			]

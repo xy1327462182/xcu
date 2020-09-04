@@ -1,0 +1,55 @@
+<view class="weather_page">
+
+  <view class="wea_hd">
+    <image src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/weatherPage/weatherBg.jpg" mode="widthFix" class="wea_hd_img"></image>
+    <view class="wea_pos">
+      <view class="wea_pos_city">
+        <text class="iconfont icon-dingwei"></text>
+        <text class="city">北京</text>
+      </view>
+      <view class="wea_pos_update_time">刚刚更新</view>
+    </view>
+
+    <view class="today_wea">
+      <view class="today_temp">{{daily[0].tempMin}}℃~{{daily[0].tempMax}}℃</view>
+      <view class="today_condition">天气：{{daily[0].textDay}} | 风向：{{daily[0].windDirDay}}</view>
+    </view>
+
+    <view class="today_wind_wrap">
+      <view class="today_wind_item">
+        <text>降水</text>
+        <text>{{daily[0].precip}}</text>
+      </view>
+      <view class="today_wind_item">
+        <text>湿度</text>
+        <text>{{daily[0].humidity}}</text>
+      </view>
+      <view class="today_wind_item">
+        <text>{{daily[0].windDirDay}}</text>
+        <text>{{daily[0].windScaleDay}}</text>
+      </view>
+      <view class="today_wind_item">
+        <text>气压</text>
+        <text>{{daily[0].pressure}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="three_wrap">
+    <view class="three_item">
+      <view class="three_item_tit">今天</view>
+      <view class="three_item_wea">{{daily[0].textDay}}/{{daily[0].textNight}}</view>
+      <view class="three_item_temp">{{daily[0].tempMin}}℃/{{daily[0].tempMax}}℃</view>
+    </view>
+    <view class="three_item">
+      <view class="three_item_tit">{{daily[1].fxDate}}</view>
+      <view class="three_item_wea">{{daily[1].textDay}}/{{daily[1].textNight}}</view>
+      <view class="three_item_temp">{{daily[1].tempMin}}℃/{{daily[1].tempMax}}℃</view>
+    </view>
+    <view class="three_item">
+      <view class="three_item_tit">{{daily[2].fxDate}}</view>
+      <view class="three_item_wea">{{daily[2].textDay}}/{{daily[2].textNight}}</view>
+      <view class="three_item_temp">{{daily[2].tempMin}}℃/{{daily[2].tempMax}}℃</view>
+    </view>
+  </view>
+</view>
