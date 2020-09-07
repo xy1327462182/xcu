@@ -7,7 +7,7 @@
         <text class="iconfont icon-dingwei"></text>
         <text class="city">{{city}}</text>
       </view>
-      <view class="wea_pos_update_time">刚刚更新</view>
+      <view class="wea_pos_update_time">{{minutes < 60 ? minutes:null}}分钟前更新</view>
     </view>
 
     <view class="today_wea">

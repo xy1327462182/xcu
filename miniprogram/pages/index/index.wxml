@@ -1,7 +1,7 @@
 <!-- 顶部搜索框部分 -->
 <view class="index_header">
   <!-- 天气模块 -->
-  <navigator url="/pages/weatherPage/index?city={{city}}&locationId={{locationId}}" class="index_weather">
+  <navigator wx:if="{{city}}" url="/pages/weatherPage/index?city={{city}}&locationId={{locationId}}" class="index_weather">
     <!-- 天气上半部分 -->
     <view class="weather_temperature_wrap">
       <text class="weather_temperature">{{weatherMsg.temp}}℃</text>
@@ -11,6 +11,11 @@
     <view class="weather_site">{{city}}</view>
 
   </navigator>
+
+  <!-- 未授权天气模块 -->
+  <view class="index_weather" wx:else>
+    <button class="openSetWea" bindtap="openSetWea">获取天气</button>
+  </view>
 
   <!-- 搜索模块 -->
   <view class="index_search">

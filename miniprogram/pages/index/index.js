@@ -2,6 +2,7 @@
 const db=wx.cloud.database()
 
 import {request} from "../../request/index.js";
+import {getSetting,openSetting} from "../../utils/asyncWx.js";
 
 Page({
 
@@ -42,9 +43,8 @@ Page({
         //获取城市
         that.getCity(latitude,longitude)
       },
-      error(err){
+      fail(err){
         console.log(err);
-        
       }
     })
   },
@@ -77,10 +77,30 @@ Page({
         key
       }
     })
+    
     that.setData({
       weatherMsg: res1.data.now
     })
   },
+  //点击获取天气按钮
+  async openSetWea(){
+    let that = this
+    let res1=await openSetting()
+    if (res1.authSetting['scope.userLocation']) {
+      //用户同意授权
+      wx.getLocation({
+        success(res){
+          let {latitude,longitude}=res
+          //获取城市
+          that.getCity(latitude,longitude)
+        },
+        fail(err){
+          console.log(err);
+        }
+      })
+    }
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

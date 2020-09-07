@@ -7,7 +7,10 @@ Page({
    */
   data: {
     daily: [],
-    city: ""
+    city: "",
+    locationId: '',
+    key: '',
+    minutes: 0
   },
 
   /**
@@ -17,10 +20,15 @@ Page({
     let locationId=options.locationId
     let city=options.city
     let key='e10880340dee4e1f8e8a9b0f4c547bfb'
-    this.getWeather(locationId, key, city)
+    this.setData({
+      locationId,
+      city,
+      key
+    })
+    this.getWeather(locationId, key)
   },
   //获取实时天气
-  async getWeather(location, key, city){
+  async getWeather(location, key){
     let that = this
     let daily = []
     let res1 = await request({
@@ -30,6 +38,11 @@ Page({
         key
       }
     })
+    let resTime = res1.data.updateTime
+    let publishTime = new Date(resTime).getTime()
+    let nowTime = Date.now()
+
+    let minutes = parseInt((nowTime - publishTime)/1000/60)
 
     for (let i = 0;i < res1.data.daily.length; i++) {
       daily[i] = {
@@ -47,12 +60,11 @@ Page({
         daily[i].pressure = res1.data.daily[i].pressure
       }
     }
-
-    
     that.setData({
       daily,
-      city,
+      minutes,
     })
+    wx.stopPullDownRefresh()
   },
 
   /**
@@ -87,7 +99,12 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    let obj={
+      locationId: this.data.locationId,
+      city:this.data.city,
+      key:this.data.key
+    }
+    this.onLoad(obj)
   },
 
   /**

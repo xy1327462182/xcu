@@ -1,5 +1,8 @@
 {
   "usingComponents": {},
   "navigationBarBackgroundColor": "#009dcb",
-  "navigationBarTitleText": "天气详情"
+  "navigationBarTitleText": "天气详情",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+
 }
