@@ -5,7 +5,7 @@
     <view class="wea_pos">
       <view class="wea_pos_city">
         <text class="iconfont icon-dingwei"></text>
-        <text class="city">北京</text>
+        <text class="city">{{city}}</text>
       </view>
       <view class="wea_pos_update_time">刚刚更新</view>
     </view>
@@ -36,20 +36,16 @@
   </view>
 
   <view class="three_wrap">
-    <view class="three_item">
-      <view class="three_item_tit">今天</view>
-      <view class="three_item_wea">{{daily[0].textDay}}/{{daily[0].textNight}}</view>
-      <view class="three_item_temp">{{daily[0].tempMin}}℃/{{daily[0].tempMax}}℃</view>
+
+    <view class="three_item"
+    wx:for="{{daily}}"
+    wx:key="fxDate"
+    >
+      <view class="three_item_tit">{{item.fxDate}}</view>
+      <view class="three_item_wea">{{item.textDay}}/{{item.textNight}}</view>
+      <view class="three_item_temp">{{item.tempMin}}℃/{{item.tempMax}}℃</view>
     </view>
-    <view class="three_item">
-      <view class="three_item_tit">{{daily[1].fxDate}}</view>
-      <view class="three_item_wea">{{daily[1].textDay}}/{{daily[1].textNight}}</view>
-      <view class="three_item_temp">{{daily[1].tempMin}}℃/{{daily[1].tempMax}}℃</view>
-    </view>
-    <view class="three_item">
-      <view class="three_item_tit">{{daily[2].fxDate}}</view>
-      <view class="three_item_wea">{{daily[2].textDay}}/{{daily[2].textNight}}</view>
-      <view class="three_item_temp">{{daily[2].tempMin}}℃/{{daily[2].tempMax}}℃</view>
-    </view>
+
+   
   </view>
 </view>

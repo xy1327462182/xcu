@@ -41,6 +41,10 @@ Page({
         let {latitude,longitude}=res
         //获取城市
         that.getCity(latitude,longitude)
+      },
+      error(err){
+        console.log(err);
+        
       }
     })
   },

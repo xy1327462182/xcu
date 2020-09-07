@@ -1,7 +1,7 @@
 <!-- 顶部搜索框部分 -->
 <view class="index_header">
   <!-- 天气模块 -->
-  <navigator url="/pages/weatherPage/index?city={{locationId}}" class="index_weather">
+  <navigator url="/pages/weatherPage/index?city={{city}}&locationId={{locationId}}" class="index_weather">
     <!-- 天气上半部分 -->
     <view class="weather_temperature_wrap">
       <text class="weather_temperature">{{weatherMsg.temp}}℃</text>
