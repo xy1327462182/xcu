@@ -1,5 +1,17 @@
 <view class="publish_page">
-  <view class="publish_wrap">
+  <view class="publish_wrap" animation="{{animation}}">
     <view class="publish_title">让想象被看见</view>
+    <view class="publish_item_wrap">
+    
+      <navigator class="publish_item"
+      wx:for="{{icoList}}"
+      wx:key="name"
+      url="{{item.link}}"
+      >
+        <image src="{{item.icoPath}}" class="item_img" mode="widthFix"></image>
+        <view class="item_txt">{{item.name}}</view>  
+      </navigator>
+
+    </view>
   </view>
 </view>

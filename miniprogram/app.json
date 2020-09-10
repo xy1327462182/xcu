@@ -8,7 +8,14 @@
     "pages/searchPage/index",
     "pages/demo1/index",
     "pages/userSetting/index",
-    "pages/weatherPage/index"
+    "pages/weatherPage/index",
+    "pages/publishGoods/index",
+    "pages/publishTrends/index",
+    "pages/publishCircle/index",
+    "pages/publishReward/index",
+    "pages/goodsDetails/index",
+    "pages/pay/index",
+    "pages/addAddress/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

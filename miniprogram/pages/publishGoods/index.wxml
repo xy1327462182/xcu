@@ -1,0 +1,54 @@
+<!-- 头部 -->
+<view class="pGoods_hd">
+	<view class="cancel" bindtap="cancelHandel" >取消</view>
+	<view class="p_title">发布</view>
+	<view class="p_publish">发布</view>
+</view>
+<!-- 文本域部分 -->
+<view class="p_txt_wrap">
+	<textarea placeholder="请输入品牌型号，新旧程度，入手渠道，转手原因..." show-confirm-bar="false" maxlength="1000" class="p_txt_content"></textarea>
+</view>
+<!-- 图片部分 -->
+<view class="p_imgs_wrap">
+
+	<view 
+  class="img_item"
+  wx:for="{{imgList}}"
+  wx:key="item"
+  bindtap="handelPicTap"
+  data-src="{{item}}}"
+  >
+    <image src="{{item}}" mode="widthFix" class="goods_img"></image>
+    <view class="del_btn iconfont icon-cuohao" bindtap="delImgs" data-index="{{index}}"></view>
+	</view>
+	
+  <view class="img_item" wx:if="{{imgList.length<6}}">
+    <view class="add_pics iconfont icon-jiahao" bindtap="addPics"></view>
+  </view>
+</view>
+
+<!-- 发货地部分 -->
+<text class="shippings_address">
+  <text class="se_addr_ico iconfont icon-dingwei"></text>
+  <text class="se_txt">请选择发货地</text>
+</text>
+
+<!-- 价格和标签 -->
+<view class="info_wrap_btm">
+  <view class="price_box info_item">
+    <view class="info_item_ico iconfont icon-jiage"></view>
+    <view class="info_item_content">
+      <text class="info_item_content_name">价格</text>
+      <text class="info_item_content_txt goods_price">￥ 0.00</text>
+    </view>
+    <view class="info_item_arrow iconfont icon-jiantou"></view>
+  </view>
+  <view class="notes_box info_item">
+    <view class="info_item_ico iconfont icon-xinxiinfo21"></view>
+    <view class="info_item_content">
+      <text class="info_item_content_name">更多信息</text>
+      <text class="info_item_content_txt goods_price">补充信息获得更多曝光</text>
+    </view>
+    <view class="info_item_arrow iconfont icon-jiantou"></view>
+  </view>
+</view>

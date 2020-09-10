@@ -94,6 +94,27 @@
 					"id": -1,
 					"name": "发布页",
 					"pathName": "pages/publish/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发布商品页",
+					"pathName": "pages/publishGoods/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "商品详情页",
+					"pathName": "pages/goodsDetails/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选择地址",
+					"pathName": "pages/addAddress/index",
 					"scene": null
 				}
 			]

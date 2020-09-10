@@ -72,3 +72,17 @@ export const showToast=({title})=>{
     })
   })
 }
+
+export const chooseImage=(data)=>{
+  return new Promise((resolve, reject)=>{
+    wx.chooseImage({
+      ...data,
+      success(res){
+        resolve(res)
+      },
+      fail(err){
+        reject(err)
+      }
+    })
+  })
+}

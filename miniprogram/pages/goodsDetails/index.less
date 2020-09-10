@@ -1,0 +1,210 @@
+.goods_details_page{
+    width: 100%;
+    padding: 0 40rpx;
+    .goods_hd_wrap{
+        margin-top: 30rpx;
+        .price_wrap{
+            height: 100rpx;
+            display: flex;
+            align-items: center;
+            .price{
+                font-size: 46rpx;
+                color: #ff0011;
+                font-weight: 650;
+                margin-right: 15rpx;
+            }
+            .baoyou{
+                width: 80rpx;
+                height: 30rpx;
+                line-height: 30rpx;
+                border-radius: 6rpx;
+                text-align: center;
+                background: rgba(0,0,0,.05);
+                color:#ff0011;
+                font-size: 24rpx;
+
+            }
+        }
+        .goods_notes{
+            display: flex;
+            flex-flow: row wrap;
+            margin: 40rpx 0 18rpx;
+            .goods_notes_item{
+                display: inline-block;
+                height: 46rpx;
+                line-height: 46rpx;
+                border-radius: 23rpx;
+                background-color: #25dbe6;
+                opacity: .8;
+                text-align: center;
+                font-size: 28rpx;
+                color: #111;
+                padding: 0 16rpx;
+                margin-right: 24rpx;
+            }
+        }
+    }
+    .goods_main{
+        .goods_imgs{
+            border-radius: 40rpx;
+            overflow: hidden;
+            margin-bottom: 30rpx;
+            .goods_img{
+                width: 100%;
+            }
+        }
+        .goods_supports{
+            width: 100%;
+            height: 140rpx;
+            line-height: 110rpx;
+            padding-right: 16rpx;
+            padding-bottom: 40rpx;
+            color: #999;
+            font-size: 28rpx;
+            text-align: right;
+            border-top: 1rpx solid #ddd;
+            border-bottom: 30rpx solid #f2f3f7;
+        }
+        .goods_author_wrap{
+            padding: 45rpx 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 30rpx solid #f2f3f7;
+            .author_info_wrap{
+                .author_name{
+                    font-weight: 650;
+                    font-size: 32rpx;
+                    margin-bottom: 15rpx;
+                }
+            }
+            .author_avator{
+                width: 120rpx;
+                height: 120rpx;
+                border-radius: 6rpx;
+                overflow: hidden;
+                margin-left: 20rpx;
+                image{
+                    width: 100%;
+                }
+            }
+        }
+        .comment_box{
+            .comment_box_title{
+                height: 100rpx;
+                line-height: 100rpx;
+                font-weight: 650;
+                font-size: 34rpx;
+            }
+            .add_comment_wrap{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                border-bottom: 1rpx solid #ccc;
+                .comment_input{
+                    width: 90%;
+                    height: 70rpx;
+                    padding-left: 24rpx;
+                    background-color: #f2f3f7;
+                    border-radius: 35rpx;
+                    font-size: 28rpx;
+                }
+                .add_comment_btn{
+                    width: 160rpx;
+                    height: 58rpx;
+                    background-color: #ffe224;
+                    border-radius: 28rpx;
+                    color: #222;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 30rpx 0;
+                }
+            }
+            .comment_content{
+                border-bottom: 40rpx solid #f2f3f7;
+                .comment_item{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    border-bottom: 1rpx solid #eee;
+                    margin: 30rpx 0;
+                    .comment_item_hd{
+                        height: 70rpx;
+                        display: flex;
+                        align-items: center;
+                        .comment_item_avator{
+                            width: 70rpx;
+                            height: 70rpx;
+                            border-radius: 50%;
+                            overflow: hidden;
+                            margin-right: 20rpx;
+                        }
+                        .comment_item_name{
+                            font-weight: 550;
+                            font-size: 28rpx;
+                        }
+                    }
+                    .comment_item_bd{
+                        padding-left: 90rpx;
+                        margin: 20rpx;
+                    }
+                }
+            }
+        }
+    }
+    .tools_btm{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 120rpx;
+        padding: 0 30rpx;
+        background-color: #fff;
+        border-top: 1rpx solid #ccc;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .tools_left_wrap{
+            display: flex;
+            align-items: center;
+            .tools_item{
+                margin-right: 40rpx;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                .iconfont{
+                    font-size: 34rpx;
+                }
+                .tools_item_name{
+                    font-size: 28rpx;
+                }
+                .shoucang{
+                    font-size: 38rpx;
+                }
+            }
+        }
+        .tools_right_wrap{
+            display: flex;
+            align-items: center;
+            .tools_right_item{
+                width: 200rpx;
+                height: 80rpx;
+                background-color: #ffe224;
+                border-radius: 40rpx;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-left: 20rpx;
+                color: #fff;
+                font-size: 32rpx;
+                font-weight: 650;
+            }
+            .buy{
+                background-color: #ff0011;
+            }
+        }
+    }
+}

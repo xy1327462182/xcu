@@ -1,4 +1,5 @@
 @import './style/iconfont.wxss';
+@import './style/weui.wxss';
 
 /* 初始化样式 */
 page,

@@ -1,0 +1,106 @@
+<view class="goods_details_page">
+	<!-- 商品头部信息部分 -->
+	<view class="goods_hd_wrap">
+		<!-- 价格部分 -->
+		<view class="price_wrap">
+			<view class="price">
+				￥99
+			</view>
+			<view class="baoyou">包邮</view>
+		</view>
+		<!-- 商品文字详情说明信息 -->
+		<view class="info_txt_wrap">
+			这是商品详情介绍的文字信息这是商品详情介绍的文字信息这是商品详情介绍的文字信息这是商品详情介绍的文字信息这是商品详情介绍的文字信息这是商品详情介绍的文字信息这是商品详情介绍的文字信息这是商品详情介绍的文字信息这是商品详情介绍的文字信息~~~~~~
+		</view>
+
+		<!-- 商品标签部分 -->
+		<view class="goods_notes">
+			<text class="goods_notes_item">#防晒衣男</text>
+			<text class="goods_notes_item">#夏季</text>
+			<text class="goods_notes_item">#男装</text>
+		</view>
+	</view>
+
+	<!-- 主体部分 -->
+	<view class="goods_main">
+
+		<!-- 商品图片部分 -->
+		<view class="goods_imgs">
+			<image src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/微信图片_20200910173323.jpg" mode="widthFix" class="goods_img"></image>
+			<image src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/微信图片_20200910173323.jpg" mode="widthFix" class="goods_img"></image>
+			<image src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/微信图片_20200910173323.jpg" mode="widthFix" class="goods_img"></image>
+			<image src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/微信图片_20200910173323.jpg" mode="widthFix" class="goods_img"></image>
+		
+		</view>
+
+		<!-- 点赞数量 -->
+		<view class="goods_supports">34人想要</view>
+
+		<!-- 作者/商家 信息 -->
+		<view class="goods_author_wrap">
+
+			<view class="author_info_wrap">
+				<view class="author_name">这是商家名字</view>
+				<view class="author_info_txt">这是信息介绍，来自上海，共售卖99件商品</view>
+			</view>
+
+			<view class="author_avator">
+        <image src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/avatar.jpg" mode="widthFix"></image>
+      </view>
+
+		</view>
+
+		<!-- 留言/评论  模块 -->
+		<view class="comment_box">
+			<view class="comment_box_title">全部留言</view>
+
+			<view class="add_comment_wrap">
+				<input class="comment_input" placeholder="看对眼就留言哦~"></input>
+				<view class="add_comment_btn">添加</view>
+			</view>
+
+			<view class="comment_content">
+
+				<view class="comment_item">
+					<view class="comment_item_hd">
+            <image class="comment_item_avator" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/avatar.jpg"></image>
+						<view class="comment_item_name">图书有的物质</view>
+					</view>
+					<view class="comment_item_bd">商品不错，质量可以，点赞！</view>
+				</view>
+        <view class="comment_item">
+					<view class="comment_item_hd">
+            <image class="comment_item_avator" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/avatar.jpg"></image>
+						<view class="comment_item_name">图书有的物质</view>
+					</view>
+					<view class="comment_item_bd">商品不错，质量可以，点赞！</view>
+				</view>
+        <view class="comment_item">
+					<view class="comment_item_hd">
+            <image class="comment_item_avator" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/avatar.jpg"></image>
+						<view class="comment_item_name">图书有的物质</view>
+					</view>
+					<view class="comment_item_bd">商品不错，质量可以，点赞！</view>
+				</view>
+			</view>
+		</view>
+
+	</view>
+  <!-- 底部工具栏 -->
+  <view class="tools_btm">
+    <view class="tools_left_wrap">
+      <view class="tools_item">
+        <text class="iconfont icon-zan"></text>
+        <text class="tools_item_name">点赞</text>
+      </view>
+      <view class="tools_item">
+        <text class="iconfont shoucang icon-aixin"></text>
+        <text class="tools_item_name">收藏</text>
+      </view>
+    </view>
+    <view class="tools_right_wrap">
+      <view class="tools_right_item">加购物车</view>
+      <navigator class="tools_right_item buy">去购买</navigator>
+    </view>
+  </view>
+</view>
