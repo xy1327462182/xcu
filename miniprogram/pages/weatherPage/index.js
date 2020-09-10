@@ -43,7 +43,6 @@ Page({
     let nowTime = Date.now()
 
     let minutes = parseInt((nowTime - publishTime)/1000/60)
-
     for (let i = 0;i < res1.data.daily.length; i++) {
       daily[i] = {
         fxDate: res1.data.daily[i].fxDate,

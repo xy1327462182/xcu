@@ -87,6 +87,13 @@
 					"id": -1,
 					"name": "天气页",
 					"pathName": "pages/weatherPage/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发布页",
+					"pathName": "pages/publish/index",
 					"scene": null
 				}
 			]

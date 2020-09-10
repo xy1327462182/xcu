@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/discover/index",
+    "pages/publish/index",
     "pages/localFood/index",
     "pages/user/index",
     "pages/searchPage/index",
@@ -29,6 +30,12 @@
         "text": "美食",
         "iconPath": "./tabBarIco/shopcar1.png",
         "selectedIconPath": "./tabBarIco/shopcar2.png"
+      },
+      {
+        "pagePath": "pages/publish/index",
+        "text": "发布",
+        "iconPath": "./tabBarIco/publish.png",
+        "selectedIconPath": "./tabBarIco/publish.png"
       },
       {
         "pagePath": "pages/discover/index",

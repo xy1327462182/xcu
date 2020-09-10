@@ -1,0 +1,50 @@
+page{
+    background-color: #fff;
+    .publish_page{
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: rgba(0,0,0,.2);
+        .publish_wrap{
+            width: 2200rpx;
+            height: 2200rpx;
+            background-color: #68d6d9;
+            border-radius: 50%;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translate(-50%);
+            animation: publishWarp .3s forwards;
+            .publish_title{
+                color: #fff;
+                font-size: 32rpx;
+                font-weight: 550;
+                width: 100%;
+                position: absolute;
+                top: -80rpx;
+                left: 0;
+                text-align: center;
+                letter-spacing: 6rpx;
+            }
+            .publish_item_wrap{
+                width: 100%;
+                padding: 20rpx;
+                background-color: red;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        @keyframes publishWarp {
+            0%{
+                top: 100%;
+            }
+            100%{
+                top: 60%;
+            }
+        }
+    }
+}
