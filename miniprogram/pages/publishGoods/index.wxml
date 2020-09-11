@@ -2,11 +2,11 @@
 <view class="pGoods_hd">
 	<view class="cancel" bindtap="cancelHandel" >取消</view>
 	<view class="p_title">发布</view>
-	<view class="p_publish">发布</view>
+	<view class="p_publish" bindtap="publish">发布</view>
 </view>
 <!-- 文本域部分 -->
 <view class="p_txt_wrap">
-	<textarea placeholder="请输入品牌型号，新旧程度，入手渠道，转手原因..." show-confirm-bar="false" maxlength="1000" class="p_txt_content"></textarea>
+	<textarea placeholder="请输入品牌型号，新旧程度，入手渠道，转手原因..." show-confirm-bar="false" maxlength="1000" class="p_txt_content" bindinput="handelTextIpt" bindblur="getTextVal"></textarea>
 </view>
 <!-- 图片部分 -->
 <view class="p_imgs_wrap">
@@ -28,27 +28,66 @@
 </view>
 
 <!-- 发货地部分 -->
-<text class="shippings_address">
-  <text class="se_addr_ico iconfont icon-dingwei"></text>
-  <text class="se_txt">请选择发货地</text>
-</text>
+<picker mode="region" bindchange="bindAddressChange" class="shippings_address_wrap">
+  <view class="shippings_address">
+    <text class="se_addr_ico iconfont icon-dingwei"></text>
+    <text class="se_txt">{{addressArr.length>0?addressArr[1] + ' '+addressArr[2]:'请选择发货地'}}</text>
+  </view>
+</picker>
+
 
 <!-- 价格和标签 -->
 <view class="info_wrap_btm">
   <view class="price_box info_item">
     <view class="info_item_ico iconfont icon-jiage"></view>
     <view class="info_item_content">
-      <text class="info_item_content_name">价格</text>
-      <text class="info_item_content_txt goods_price">￥ 0.00</text>
+      <text class="info_item_content_name">商品价格</text>
+      <view class="info_item_content_txt goods_price">￥<input type="digit" class="goods_price_ipt" placeholder="0.00" bindinput="priceIpt"></input></view>
+      <!-- <text >￥ 0.00</text> -->
+      
     </view>
     <view class="info_item_arrow iconfont icon-jiantou"></view>
   </view>
-  <view class="notes_box info_item">
+  <view class="notes_box info_item" bindtap="openTools">
     <view class="info_item_ico iconfont icon-xinxiinfo21"></view>
     <view class="info_item_content">
-      <text class="info_item_content_name">更多信息</text>
-      <text class="info_item_content_txt goods_price">补充信息获得更多曝光</text>
+      <text class="info_item_content_name">商品标签</text>
+      <text class="info_item_content_txt">添加标签获得更多曝光</text>
     </view>
     <view class="info_item_arrow iconfont icon-jiantou"></view>
   </view>
 </view>
+
+<!-- 遮罩层 -->
+<view class="mask" animation="{{animationMask}}" bindtap="handelMaskTap"></view>
+
+<!-- 添加标签工具 -->
+<view class="add_notes_tools" animation="{{animationTools}}">
+  <view class="notes_tools_title">商品标签</view>
+
+  <view class="add_notes_wrap">
+    <view class="add_notes_title">添加标签</view>
+    <view class="add_notes_content">
+      <input class="add_notes_ipt" 
+      placeholder="请输入标签"
+      value="{{noteIpt}}"
+      bindinput="handelInput"></input>
+      <view class="add_notes_btn" bindtap="handelAddNotes">添加</view>
+    </view>
+  </view>
+
+  <view class="all_notes_wrap">
+    <view class="all_notes_title">我的标签 <text>(点击删除)</text></view>
+    <view class="all_notes_content">
+      <text 
+      class="goods_notes_item" 
+      wx:for="{{notesList}}"
+      wx:key="item"
+      bindtap="delNotes"
+      data-index="{{index}}"
+      >#{{item}}</text>
+     
+    </view>
+  </view>
+</view>
+

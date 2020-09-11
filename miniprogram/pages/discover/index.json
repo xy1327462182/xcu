@@ -1,4 +1,8 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText": "发现"
+  "usingComponents": {
+    "goodsList": "../../components/goodsList/goodsList"
+  },
+  "navigationBarTitleText": "发现",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }

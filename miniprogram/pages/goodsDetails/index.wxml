@@ -4,20 +4,21 @@
 		<!-- 价格部分 -->
 		<view class="price_wrap">
 			<view class="price">
-				￥99
+				￥{{goodsMsg.goodsPrice}}
 			</view>
 			<view class="baoyou">包邮</view>
 		</view>
 		<!-- 商品文字详情说明信息 -->
 		<view class="info_txt_wrap">
-			这是商品详情介绍的文字信息这是商品详情介绍的文字信息这是商品详情介绍的文字信息这是商品详情介绍的文字信息这是商品详情介绍的文字信息这是商品详情介绍的文字信息这是商品详情介绍的文字信息这是商品详情介绍的文字信息这是商品详情介绍的文字信息~~~~~~
+			{{goodsMsg.goodsInfoTxt}}
 		</view>
 
 		<!-- 商品标签部分 -->
 		<view class="goods_notes">
-			<text class="goods_notes_item">#防晒衣男</text>
-			<text class="goods_notes_item">#夏季</text>
-			<text class="goods_notes_item">#男装</text>
+			<text class="goods_notes_item" 
+			wx:for="{{goodsMsg.notesList}}"
+			wx:key="item">#{{item}}</text>
+		
 		</view>
 	</view>
 
@@ -26,15 +27,14 @@
 
 		<!-- 商品图片部分 -->
 		<view class="goods_imgs">
-			<image src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/微信图片_20200910173323.jpg" mode="widthFix" class="goods_img"></image>
-			<image src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/微信图片_20200910173323.jpg" mode="widthFix" class="goods_img"></image>
-			<image src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/微信图片_20200910173323.jpg" mode="widthFix" class="goods_img"></image>
-			<image src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/微信图片_20200910173323.jpg" mode="widthFix" class="goods_img"></image>
-		
+			<image 
+			wx:for="{{goodsMsg.imgIdArr}}"
+			wx:key="index"
+			src="{{item}}" mode="widthFix" class="goods_img"></image>
 		</view>
 
 		<!-- 点赞数量 -->
-		<view class="goods_supports">34人想要</view>
+		<view class="goods_supports">{{goodsMsg.supports ? item.supports:0}}人想要</view>
 
 		<!-- 作者/商家 信息 -->
 		<view class="goods_author_wrap">
@@ -100,7 +100,7 @@
     </view>
     <view class="tools_right_wrap">
       <view class="tools_right_item">加购物车</view>
-      <navigator class="tools_right_item buy">去购买</navigator>
+      <navigator class="tools_right_item buy">我要预定</navigator>
     </view>
   </view>
 </view>

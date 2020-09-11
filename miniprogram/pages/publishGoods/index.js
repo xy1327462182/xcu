@@ -1,4 +1,5 @@
-import {chooseImage} from "../../utils/asyncWx.js";
+import {chooseImage,uploadFile} from "../../utils/asyncWx.js";
+let db = wx.cloud.database()
 // pages/publishGoods/index.js
 Page({
 
@@ -6,7 +7,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgList: []
+    imgList: [],
+    addressArr: [],
+    goodsInfoTxt: '',
+    goodsPrice: 0,
+    animationTools: '',
+    animationMask: '',
+    noteIpt: '',
+    notesList: []
   },
 
   //取消按钮
@@ -37,7 +45,6 @@ Page({
       that.setData({
         imgList
       })
-      console.log(that.data.imgList);
     }
     
   },
@@ -60,6 +67,153 @@ Page({
     wx.previewImage({
       urls: imgList,
       current: src
+    })
+  },
+
+  //收货地址
+  bindAddressChange(e){
+    let addressArr = e.detail.value
+    this.setData({
+      addressArr
+    })
+  },
+
+  //价格输入
+  priceIpt(e){
+    let goodsPrice = e.detail.value - 0
+    this.setData({
+      goodsPrice
+    })
+  },
+
+  //处理标签点击  开启遮罩层和标签工具栏
+  openTools(){
+    let animationTools = wx.createAnimation({
+      duration: 400,
+      timingFunction: 'ease',
+    })
+    animationTools.bottom('0').step()
+    this.setData({
+      animationTools: animationTools.export()
+    })
+
+    let animationMask = wx.createAnimation({
+      duration: 10,
+      timingFunction: 'ease',
+    })
+    animationMask.top('0').step()
+    this.setData({
+      animationMask: animationMask.export()
+    })
+  },
+
+  //点击遮罩层
+  handelMaskTap(){
+    let animationMask = wx.createAnimation({
+      duration: 10,
+      timingFunction: 'ease',
+    })
+    animationMask.top('100%').step()
+    this.setData({
+      animationMask: animationMask.export()
+    })
+
+    let animationTools = wx.createAnimation({
+      duration: 400,
+      timingFunction: 'ease',
+    })
+    animationTools.bottom('-100%').step()
+    this.setData({
+      animationTools: animationTools.export()
+    })
+  },
+
+  //输入框输入
+  handelInput(e){
+    let noteIpt=e.detail.value
+    this.setData({
+      noteIpt 
+    })
+  },
+
+  //文本域失去焦点 获取value
+  getTextVal(e){
+    let goodsInfoTxt=e.detail.value
+    this.setData({
+      goodsInfoTxt
+    })
+  },
+
+  //添加标签
+  handelAddNotes(){
+    let inner = this.data.noteIpt
+    if (inner.length > 0) {
+      let {notesList} = this.data
+      notesList.push(inner)
+      this.setData({
+        notesList,
+        noteIpt: ''
+      })
+    }
+  },
+
+  //删除标签
+  delNotes(e){
+    let {index}=e.currentTarget.dataset
+    let {notesList}=this.data
+    notesList.splice(index,1)
+    this.setData({
+      notesList
+    })
+  },
+
+  //发布商品
+  async publish(){
+    wx.showLoading({
+      title: '拼命上传中',
+    })
+    let data = this.data
+    let {imgList} = data
+    let imgIdArr = []
+    for (let i=0;i<imgList.length;i++) {
+      let randomNum = parseInt(Math.random() * 1000)
+      let res = await uploadFile({
+        cloudPath: 'xcu/' + 'goodsImages/' + Date.now() + randomNum + '.jpg',
+        filePath: imgList[i],
+        config: {
+          env: 'yang-g4cqy'
+        }
+      })
+      imgIdArr.push(res.fileID)
+    } 
+    //获取作者信息
+    let authorOpenId=wx.getStorageSync('userLogin')._openid
+    let authorMsg=await db.collection('xcu_userInfo').where({
+      _openid: authorOpenId
+    }).get()
+    
+    await wx.cloud.callFunction({
+      name: 'addGoods',
+      data: {
+        goodsInfoTxt: data.goodsInfoTxt,
+        imgIdArr,
+        addressArr: data.addressArr,
+        goodsPrice: data.goodsPrice,
+        notesList: data.notesList,
+        authorOpenId: authorOpenId,
+        authorAvator: authorMsg.data[0].avatarUrl,
+        authorNickName: authorMsg.data[0].nickName
+      },
+    })
+    wx.hideLoading()
+    wx.showToast({
+      title: '发布成功',
+      icon: 'success',
+      success(){
+        wx.switchTab({
+          url: '/pages/discover/index',
+        })
+      }
     })
   },
 

@@ -1,3 +1,4 @@
+let db = wx.cloud.database()
 // pages/goodsDetails/index.js
 Page({
 
@@ -5,14 +6,23 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    goodsMsg: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let that = this
+    let id=options.id
+    //查找数据
+    db.collection('xcu_goods').doc(id).get()
+      .then(res=>{
+        let goodsMsg = res.data
+        that.setData({
+          goodsMsg
+        })
+      })
   },
 
   /**

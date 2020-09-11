@@ -1,3 +1,5 @@
+let db=wx.cloud.database()
+
 // pages/discover/index.js
 Page({
 
@@ -8,20 +10,19 @@ Page({
     disTabsList: [
       {
         name: "好物",
-        isActive: false,
+        isActive: true,
         id:0
       },
       {
         name: "动态",
-        isActive: true,
-        id:1
-      },
-      {
-        name: "好书",
         isActive: false,
-        id:2
+        id:1
       }
-    ]
+    ],
+    goodsList1: [],
+    goodsList2: [],
+    nowTabContent: 0,
+    skips: 0
   },
 
   handelTabChange(e){
@@ -31,15 +32,57 @@ Page({
       v.id === id ? v.isActive=true:v.isActive=false
     })
     this.setData({
-      disTabsList
+      disTabsList,
+      nowTabContent: id
     })
+  },
+
+  //获取商品数据
+  async getGoodsData(num=4,skip=0){
+    let that = this
+    wx.showLoading({
+      title: '拼命加载中',
+    })
+    //调用云函数查询数据
+    let result = await wx.cloud.callFunction({
+      name: 'getGoods',
+      data: {
+        num: 4,
+        skip,
+      }
+    })
+    //新获得的数据
+    let goodsList = result.result.data
+    if (goodsList.length <= 0) {
+      wx.showToast({
+        title: '越努力，越幸运！到底啦！',
+        icon: 'none',
+        mask: true,
+        duration: 600
+      })
+      return
+    }
+    //获取旧数据
+    let {goodsList1,goodsList2}=that.data
+    //整合新数据
+    goodsList = [...goodsList1,...goodsList2,...goodsList]
+
+    let len = parseInt(goodsList.length / 2)
+    let skips = goodsList.length
+    that.setData({
+      goodsList1: goodsList.slice(0,len),
+      goodsList2: goodsList.slice(len),
+      skips
+    })
+    wx.hideLoading()
+    wx.stopPullDownRefresh()
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.onPullDownRefresh()
   },
 
   /**
@@ -53,7 +96,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
   },
 
   /**
@@ -74,14 +116,22 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    //清空数据
+    // skip置0
+    this.setData({
+      goodsList1: [],
+      goodsList2: [],
+      skip: 0
+    })
+    this.getGoodsData(4,0)
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    let skip = this.data.skips
+    this.getGoodsData(4,skip)
   },
 
   /**

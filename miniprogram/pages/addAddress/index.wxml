@@ -1,12 +1,8 @@
 
 <view class="weui-cell weui-cell_select">
-
   <view class="weui-cell__hd weui-cell__hd_in-select-after">
-
     <view class="weui-label">省份</view>
-
   </view>
-
   <view class="weui-cell__bd">
 
     <picker bindchange="bindProvinceNameChange" value="{{provinceIndex}}" range="{{provinceNames}}">
@@ -18,7 +14,6 @@
     </picker>
 
   </view>
-
 </view>
 
 <view class="weui-cell weui-cell_select">
@@ -68,3 +63,9 @@
 </view>
 
 <button class="weui-btn" type="primary">保存</button>
+
+
+<picker mode="region">
+    <view>请选择地址</view>
+</picker>
+
