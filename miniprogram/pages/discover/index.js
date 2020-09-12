@@ -38,7 +38,7 @@ Page({
   },
 
   //获取商品数据
-  async getGoodsData(num=4,skip=0){
+  async getGoodsData(num=6,skip=0){
     let that = this
     wx.showLoading({
       title: '拼命加载中',
@@ -47,7 +47,7 @@ Page({
     let result = await wx.cloud.callFunction({
       name: 'getGoods',
       data: {
-        num: 4,
+        num: 6,
         skip,
       }
     })
@@ -123,7 +123,7 @@ Page({
       goodsList2: [],
       skip: 0
     })
-    this.getGoodsData(4,0)
+    this.getGoodsData(6,0)
   },
 
   /**
@@ -131,7 +131,7 @@ Page({
    */
   onReachBottom: function () {
     let skip = this.data.skips
-    this.getGoodsData(4,skip)
+    this.getGoodsData(6,skip)
   },
 
   /**

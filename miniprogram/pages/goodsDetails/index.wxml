@@ -34,18 +34,18 @@
 		</view>
 
 		<!-- 点赞数量 -->
-		<view class="goods_supports">{{goodsMsg.supports ? item.supports:0}}人想要</view>
+		<view class="goods_supports">{{goodsMsg.supports ? goodsMsg.supports:0}}人想要</view>
 
 		<!-- 作者/商家 信息 -->
 		<view class="goods_author_wrap">
 
 			<view class="author_info_wrap">
-				<view class="author_name">这是商家名字</view>
-				<view class="author_info_txt">这是信息介绍，来自上海，共售卖99件商品</view>
+				<view class="author_name">{{nickName}}</view>
+				<view class="author_info_txt">{{nickName}}，共售卖99件商品啦，看上了快快预定哦！</view>
 			</view>
 
 			<view class="author_avator">
-        <image src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/avatar.jpg" mode="widthFix"></image>
+        <image src="{{avatarUrl}}" mode="widthFix"></image>
       </view>
 
 		</view>
@@ -55,33 +55,27 @@
 			<view class="comment_box_title">全部留言</view>
 
 			<view class="add_comment_wrap">
-				<input class="comment_input" placeholder="看对眼就留言哦~"></input>
-				<view class="add_comment_btn">添加</view>
+				<input class="comment_input" placeholder="看对眼就留言哦~" bindblur="iptBlur" value="{{value}}"></input>
+				<view class="add_comment_btn" bindtap="handelAddTap">添加</view>
 			</view>
 
-			<view class="comment_content">
 
-				<view class="comment_item">
+			<view class="comment_content" wx:if="{{comments.length>0}}">
+
+				<view class="comment_item"
+				wx:for="{{comments}}"
+				wx:key="index"
+				>
+
 					<view class="comment_item_hd">
-            <image class="comment_item_avator" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/avatar.jpg"></image>
-						<view class="comment_item_name">图书有的物质</view>
+            <image class="comment_item_avator" src="{{item.cAuthor.avatarUrl}}"></image>
+						<view class="comment_item_name">{{item.cAuthor.nickName}}</view>
 					</view>
-					<view class="comment_item_bd">商品不错，质量可以，点赞！</view>
+					<view class="comment_item_bd">{{item.cComment}}</view>
 				</view>
-        <view class="comment_item">
-					<view class="comment_item_hd">
-            <image class="comment_item_avator" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/avatar.jpg"></image>
-						<view class="comment_item_name">图书有的物质</view>
-					</view>
-					<view class="comment_item_bd">商品不错，质量可以，点赞！</view>
-				</view>
-        <view class="comment_item">
-					<view class="comment_item_hd">
-            <image class="comment_item_avator" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/avatar.jpg"></image>
-						<view class="comment_item_name">图书有的物质</view>
-					</view>
-					<view class="comment_item_bd">商品不错，质量可以，点赞！</view>
-				</view>
+			</view>
+			<view class="comment_content" wx:else>
+				<view class="none_comments">暂时还没有评论</view>
 			</view>
 		</view>
 
@@ -89,18 +83,17 @@
   <!-- 底部工具栏 -->
   <view class="tools_btm">
     <view class="tools_left_wrap">
-      <view class="tools_item">
-        <text class="iconfont icon-zan"></text>
+      <view class="tools_item" bindtap="handelSupport">
+        <text class="iconfont {{isZan?'icon-zan1':'icon-zan'}}"></text>
         <text class="tools_item_name">点赞</text>
       </view>
-      <view class="tools_item">
-        <text class="iconfont shoucang icon-aixin"></text>
-        <text class="tools_item_name">收藏</text>
+      <view class="tools_item" bindtap="handelCollection">
+        <text class="iconfont shoucang {{isCollection?'icon-aixin_shixin':'icon-aixin'}}"></text>
+        <text class="tools_item_name">{{isCollection?'取消':'收藏'}}</text>
       </view>
     </view>
     <view class="tools_right_wrap">
-      <view class="tools_right_item">加购物车</view>
-      <navigator class="tools_right_item buy">我要预定</navigator>
+      <navigator class="tools_right_item buy">我要购买</navigator>
     </view>
   </view>
 </view>

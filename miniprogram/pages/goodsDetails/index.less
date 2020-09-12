@@ -1,6 +1,6 @@
 .goods_details_page{
     width: 100%;
-    padding: 0 40rpx;
+    padding: 0 40rpx 120rpx;
     .goods_hd_wrap{
         margin-top: 30rpx;
         .price_wrap{
@@ -123,7 +123,14 @@
                 }
             }
             .comment_content{
-                border-bottom: 40rpx solid #f2f3f7;
+                border-bottom: 1rpx solid #f2f3f7;
+                .none_comments{
+                    text-align: center;
+                    font-size: 40rpx;
+                    height: 100rpx;
+                    line-height: 100rpx;
+                    font-weight: 700;
+                }
                 .comment_item{
                     display: flex;
                     flex-direction: column;
@@ -166,6 +173,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        z-index: 10;
         .tools_left_wrap{
             display: flex;
             align-items: center;
@@ -177,6 +185,12 @@
                 align-items: center;
                 .iconfont{
                     font-size: 34rpx;
+                }
+                .icon-zan1{
+                    color: #ff0011;
+                }
+                .icon-aixin_shixin{
+                    color: #ff0011;
                 }
                 .tools_item_name{
                     font-size: 28rpx;

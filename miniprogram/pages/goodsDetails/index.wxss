@@ -1,6 +1,6 @@
 .goods_details_page {
   width: 100%;
-  padding: 0 40rpx;
+  padding: 0 40rpx 120rpx;
 }
 .goods_details_page .goods_hd_wrap {
   margin-top: 30rpx;
@@ -119,7 +119,14 @@
   margin: 30rpx 0;
 }
 .goods_details_page .goods_main .comment_box .comment_content {
-  border-bottom: 40rpx solid #f2f3f7;
+  border-bottom: 1rpx solid #f2f3f7;
+}
+.goods_details_page .goods_main .comment_box .comment_content .none_comments {
+  text-align: center;
+  font-size: 40rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-weight: 700;
 }
 .goods_details_page .goods_main .comment_box .comment_content .comment_item {
   display: flex;
@@ -160,6 +167,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 10;
 }
 .goods_details_page .tools_btm .tools_left_wrap {
   display: flex;
@@ -174,6 +182,12 @@
 }
 .goods_details_page .tools_btm .tools_left_wrap .tools_item .iconfont {
   font-size: 34rpx;
+}
+.goods_details_page .tools_btm .tools_left_wrap .tools_item .icon-zan1 {
+  color: #ff0011;
+}
+.goods_details_page .tools_btm .tools_left_wrap .tools_item .icon-aixin_shixin {
+  color: #ff0011;
 }
 .goods_details_page .tools_btm .tools_left_wrap .tools_item .tools_item_name {
   font-size: 28rpx;
