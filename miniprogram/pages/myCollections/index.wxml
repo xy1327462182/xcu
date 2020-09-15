@@ -1,0 +1,31 @@
+<view class="coll_hd">我的收藏</view>
+<view class="coll_content">
+	<block wx:if="{{collectionList}}">
+		<view class="goods_item" wx:for="{{collectionList}}" wx:key="goodsId">
+
+			<view class="g_ckb">
+				{{index+1}}
+			</view>
+
+			<navigator class="g_info" url="/pages/goodsDetails/index?id={{item.goodsId}}">
+
+				<view class="g_img_wrap">
+					<image class="g_img" src="{{item.goodsMainImg}}"></image>
+				</view>
+
+				<view class="g_msg_wrap">
+					<view class="g_title">{{item.goodsInfoTxt}}</view>
+					<view class="g_price">￥{{item.goodsPrice}}</view>
+				</view>
+			</navigator>
+		</view>
+	</block>
+
+	<view class="none_goods" wx:else>
+		还没有商品哦！
+	</view>
+</view>
+
+<view class="btm_tools">
+
+</view>

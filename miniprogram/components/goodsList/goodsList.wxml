@@ -7,9 +7,10 @@
 
 			<navigator 
 			class="gd_item"
-			wx:for="{{goodsList1}}"
+			wx:for="{{goodsList}}"
 			wx:key="_id"
 			url="/pages/goodsDetails/index?id={{item._id}}"
+			wx:if="{{index%2==0}}"
 			>
 				<!-- 图片 -->
 				<view class="gd_item_img_wrap">
@@ -41,9 +42,10 @@
 
 			<navigator 
 			class="gd_item"
-			wx:for="{{goodsList2}}"
+			wx:for="{{goodsList}}"
 			wx:key="_id"
 			url="/pages/goodsDetails/index?id={{item._id}}"
+			wx:if="{{index%2==1}}"
 			>
 				<!-- 图片 -->
 				<view class="gd_item_img_wrap">
@@ -69,6 +71,5 @@
 			</navigator>
 
 		</view>
-
 	</view>
 </view>

@@ -33,6 +33,7 @@
 	"libVersion": "2.8.1",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -115,6 +116,21 @@
 					"id": -1,
 					"name": "选择地址",
 					"pathName": "pages/addAddress/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的收藏夹",
+					"pathName": "pages/myCollections/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 10,
+					"name": "pay页",
+					"pathName": "pages/pay/index",
+					"query": "id=350d8cf95f607a8d0003e89452bf56bc",
 					"scene": null
 				}
 			]

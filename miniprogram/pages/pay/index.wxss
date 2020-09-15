@@ -1,1 +1,165 @@
-/* pages/pay/index.wxss */
+.pay_page {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #efefef;
+}
+.pay_page .pay_title {
+  font-size: 34rpx;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 650;
+  background-color: #fff;
+}
+.pay_page .pay_content {
+  padding: 20rpx;
+}
+.pay_page .pay_content .goods_msg {
+  background-color: #fff;
+  padding: 14rpx;
+  display: flex;
+  border-radius: 10rpx;
+}
+.pay_page .pay_content .goods_msg .img_wrap {
+  flex: 1;
+}
+.pay_page .pay_content .goods_msg .img_wrap .img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 6rpx;
+}
+.pay_page .pay_content .goods_msg .info_wrap {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 14rpx;
+}
+.pay_page .pay_content .goods_msg .info_wrap .info_wrap_top {
+  font-size: 28rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.pay_page .pay_content .goods_msg .info_wrap .info_wrap_bottom {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.pay_page .pay_content .goods_msg .info_wrap .info_wrap_bottom .price {
+  color: #ff0011;
+  font-size: 32rpx;
+  font-weight: 650;
+}
+.pay_page .pay_content .add_wrap {
+  background-color: #fff;
+  padding: 14rpx;
+  border-radius: 10rpx;
+  margin-top: 30rpx;
+}
+.pay_page .pay_content .add_wrap .add_title {
+  width: 100%;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  margin-bottom: 30rpx;
+}
+.pay_page .pay_content .add_wrap .add_contetn {
+  width: 100%;
+  padding-left: 50rpx;
+}
+.pay_page .pay_content .add_wrap .add_contetn .uname {
+  font-weight: 650;
+  font-size: 32rpx;
+}
+.pay_page .pay_content .add_wrap .add_contetn .uname .phone {
+  font-weight: 600;
+  font-size: 30rpx;
+}
+.pay_page .pay_content .add_wrap .add_contetn .info_address {
+  font-size: 30rpx;
+  color: #666;
+  white-space: wrap;
+}
+.pay_page .pay_content .add_wrap .ziti_tit {
+  font-size: 28rpx;
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+}
+.pay_page .pay_content .add_wrap .ziti_con {
+  font-size: 30rpx;
+  color: #666;
+  padding-left: 50rpx;
+}
+.pay_page .pay_content .add_address_wrap {
+  background-color: #fff;
+  padding: 14rpx;
+  border-radius: 10rpx;
+  margin-top: 30rpx;
+}
+.pay_page .pay_content .add_address_wrap .ipt_title {
+  text-align: center;
+  font-size: 34rpx;
+  font-weight: 650;
+  margin: 16rpx 0;
+}
+.pay_page .pay_content .add_address_wrap .ipt_name {
+  border: 2rpx solid #bbb;
+  margin: 40rpx 0;
+  height: 70rpx;
+  border-radius: 10rpx;
+  padding-left: 15rpx;
+  color: #666;
+}
+.pay_page .pay_content .add_address_wrap .sub_btn_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pay_page .pay_content .add_address_wrap .sub_btn_wrap .sub_btn {
+  display: inline-block;
+  width: 300rpx;
+  height: 70rpx;
+  border-radius: 8rpx;
+  background-color: #7ccd7d;
+  text-align: center;
+  line-height: 70rpx;
+}
+.pay_page .btm_tools {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+.pay_page .btm_tools .buy {
+  float: right;
+  width: 160rpx;
+  height: 66rpx;
+  border-radius: 33rpx;
+  background-color: #ff0011;
+  margin-left: 20rpx;
+  line-height: 66rpx;
+  text-align: center;
+  color: #fff;
+  margin-top: 12rpx;
+  margin-right: 20rpx;
+  font-size: 30rpx;
+  font-weight: 650;
+}
+.pay_page .btm_tools .price_box {
+  float: right;
+}
+.pay_page .btm_tools .price_box .price_num {
+  color: #ff0011;
+  font-size: 32rpx;
+  font-weight: 650;
+}

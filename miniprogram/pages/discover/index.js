@@ -19,8 +19,7 @@ Page({
         id:1
       }
     ],
-    goodsList1: [],
-    goodsList2: [],
+    goodsList: [],
     nowTabContent: 0,
     skips: 0
   },
@@ -52,8 +51,8 @@ Page({
       }
     })
     //新获得的数据
-    let goodsList = result.result.data
-    if (goodsList.length <= 0) {
+    let newGoodsList = result.result.data
+    if (newGoodsList.length <= 0) {
       wx.showToast({
         title: '越努力，越幸运！到底啦！',
         icon: 'none',
@@ -63,15 +62,12 @@ Page({
       return
     }
     //获取旧数据
-    let {goodsList1,goodsList2}=that.data
+    let {goodsList}=that.data
     //整合新数据
-    goodsList = [...goodsList1,...goodsList2,...goodsList]
-
-    let len = parseInt(goodsList.length / 2)
+    goodsList = [...goodsList,...newGoodsList]
     let skips = goodsList.length
     that.setData({
-      goodsList1: goodsList.slice(0,len),
-      goodsList2: goodsList.slice(len),
+      goodsList,
       skips
     })
     wx.hideLoading()
@@ -119,8 +115,7 @@ Page({
     //清空数据
     // skip置0
     this.setData({
-      goodsList1: [],
-      goodsList2: [],
+      goodsList: [],
       skip: 0
     })
     this.getGoodsData(6,0)

@@ -4,11 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    goodsList1: {
-      type: Array,
-      value: []
-    },
-    goodsList2: {
+    goodsList: {
       type: Array,
       value: []
     }

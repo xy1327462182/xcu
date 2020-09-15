@@ -2,12 +2,23 @@
 const cloud = require('wx-server-sdk')
 
 cloud.init()
-let db=cloud.database()
+const db=cloud.database()
+const _ = db.command
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-  
+  let {_openid,collectionList} = event
+  console.log(_openid)
+  console.log(collectionList)
+  await db.collection('xcu_userInfo').where({
+    _openid
+  }).update({
+    data: {
+      collectionList
+    }
+  })
   return {
-    event
+    _openid,
+    collectionList
   }
 }

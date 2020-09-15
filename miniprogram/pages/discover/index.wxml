@@ -3,7 +3,7 @@
 </view>
 
 <view class="dis_content_goods" wx:if="{{nowTabContent==0}}">
-  <goodsList goodsList1="{{goodsList1}}" goodsList2="{{goodsList2}}"></goodsList>
+  <goodsList goodsList="{{goodsList}}"></goodsList>
 </view>
 
 

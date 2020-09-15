@@ -5,6 +5,7 @@
     "pages/publish/index",
     "pages/localFood/index",
     "pages/user/index",
+    "pages/myCollections/index",
     "pages/searchPage/index",
     "pages/demo1/index",
     "pages/userSetting/index",

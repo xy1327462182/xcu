@@ -175,6 +175,7 @@ Page({
     let data = this.data
     let {imgList} = data
     let imgIdArr = []
+    //处理商品图片
     for (let i=0;i<imgList.length;i++) {
       let randomNum = parseInt(Math.random() * 1000)
       let res = await uploadFile({
@@ -202,7 +203,10 @@ Page({
         notesList: data.notesList,
         authorOpenId: authorOpenId,
         authorAvator: authorMsg.data[0].avatarUrl,
-        authorNickName: authorMsg.data[0].nickName
+        authorNickName: authorMsg.data[0].nickName,
+        supports: 0,
+        num: 0,
+        status: "上架",
       },
     })
     wx.hideLoading()

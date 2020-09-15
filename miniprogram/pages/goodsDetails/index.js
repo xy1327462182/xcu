@@ -41,6 +41,33 @@ Page({
     wx.hideLoading()
   },
 
+  //是否显示点赞
+  isShowZan(id){
+    //获取缓存中的点赞状态 收藏状态
+    let goodsSupports = wx.getStorageSync('goodsSupports') || []
+    //根据缓存 设置点赞状态
+    if (goodsSupports.indexOf(id) != -1) {
+      this.setData({
+        isZan: true
+      })
+    }
+  },
+  //是否显示收藏
+  isShowCollection(id){
+    let that = this
+    //获取缓存中的收藏状态
+    let collectionList = wx.getStorageSync('collectionList') || []
+    //根据缓存的数据 设置当前商品收藏状态
+    collectionList.forEach(function(v,i){
+      if (v.goodsId == id) {
+        //缓存中有本商品
+        that.setData({
+          isCollection: true
+        })
+      }
+    })
+  },
+
   //输入框失去焦点
   iptBlur(e){
     let {value}=e.detail
@@ -126,26 +153,43 @@ Page({
 
   //收藏
   async handelCollection(){
-    let {isCollection} = this.data
-    let openid=wx.getStorageSync('userLogin')._openid
-    if (!isCollection) {
-      //要收藏
-      // await wx.cloud.callFunction({
-      //   name: 'updateUserInfo',
-      //   data: {
-      //     openid
-      //   }
-      // })
-    } else {
-      //要取消收藏
+    //获取收藏状态 商品信息
+    let {isCollection,goodsMsg} = this.data
+    //获取本商品数据
+    let goodObj = {
+      goodsId: goodsMsg._id,
+      goodsMainImg: goodsMsg.imgIdArr[0],
+      goodsInfoTxt: goodsMsg.goodsInfoTxt,
+      goodsPrice: goodsMsg.goodsPrice,
     }
-
+    //获取缓存中的数据
+    let collectionList = wx.getStorageSync('collectionList') || []
+    if (!isCollection) {
+      //要收藏 将本商品数据存入数组
+      collectionList.unshift(goodObj)
+    } else {
+      //要取消收藏 从数组中删除本数据
+      let index=collectionList.indexOf(goodObj)
+      collectionList.splice(index,1)
+    }
+    //将数据重新存入缓存中
+    wx.setStorageSync('collectionList', collectionList)
 
     isCollection = !isCollection
     this.setData({
       isCollection
     })
-    //收藏夹增加
+    if (isCollection) {
+      wx.showToast({
+        title: '收藏成功',
+        icon: 'success'
+      })
+    } else if (!isCollection) {
+      wx.showToast({
+        title: '取消成功',
+        icon: 'success'
+      })
+    }
   },
 
   /**
@@ -154,17 +198,12 @@ Page({
   onLoad: function (options) {
     let that = this
     let id=options.id
-    this.getGoodsData(id)
-    let goodsSupports = wx.getStorageSync('goodsSupports')
-    if (goodsSupports) {
-      goodsSupports.forEach(element => {
-        if (element == id) {
-          that.setData({
-            isZan: true
-          })
-        }
-      })
-    }
+    //获取当前商品数据
+    that.getGoodsData(id)
+    //是否显示点赞
+    that.isShowZan(id)
+    //是否显示收藏
+    that.isShowCollection(id)
   },
 
   /**

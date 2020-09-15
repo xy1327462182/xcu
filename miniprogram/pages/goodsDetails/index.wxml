@@ -93,7 +93,8 @@
       </view>
     </view>
     <view class="tools_right_wrap">
-      <navigator class="tools_right_item buy">我要购买</navigator>
+			<navigator class="tools_right_item" url="/pages/myCollections/index">收藏夹</navigator>
+      <navigator class="tools_right_item buy" url="/pages/pay/index?id={{goodsMsg._id}}">我要购买</navigator>
     </view>
   </view>
 </view>
