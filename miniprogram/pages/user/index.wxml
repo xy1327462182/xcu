@@ -31,16 +31,16 @@
 <!-- 用户数据展示 -->
 <view class="user_data">
   <view class="user_data_item">
-    <text class="data_num">{{uInfo.fans?uInfo.fans:'0'}}</text>
-    <text class="data_name">粉丝</text>
+    <text class="data_num">{{uInfo.collectionList.length}}</text>
+    <text class="data_name">收藏</text>
   </view>
   <view class="user_data_item">
-    <text class="data_num">{{uInfo.follow?uInfo.follow:'0'}}</text>
-    <text class="data_name">关注</text>
+    <text class="data_num">{{0}}</text>
+    <text class="data_name">动态</text>
   </view>
   <view class="user_data_item">
-    <text class="data_num">{{uInfo.supports?uInfo.follow:'0'}}</text>
-    <text class="data_name">获赞</text>
+    <text class="data_num">{{uInfo.myOrder.length}}</text>
+    <text class="data_name">订单</text>
   </view>
 </view>
 
@@ -50,38 +50,17 @@
   <view class="commonly_tools_wrap">
     <view class="commonly_tools_title">常用工具</view>
     <view class="commonly_tools_content">
-      <navigator class="commonly_tools_item">
-        <text class="iconfont icon-shoucang1"></text>
-        <text class="tools_item_txt">我的收藏</text>
+      <navigator class="commonly_tools_item"
+      wx:for="{{tools}}"
+      wx:key="id"
+      url="{{item.linkPath}}"
+      >
+        <view class="tools_item_img_wrap">
+          <image class="tools_item_img" src="{{item.icoPath}}"></image>
+        </view>
+        <text class="tools_item_txt">{{item.name}}</text>
       </navigator>
-      <navigator class="commonly_tools_item">
-        <text class="iconfont icon-shoucang1"></text>
-        <text class="tools_item_txt">我的日历</text>
-      </navigator>
-      <navigator class="commonly_tools_item">
-        <text class="iconfont icon-shoucang1"></text>
-        <text class="tools_item_txt">动态</text>
-      </navigator>
-      <navigator class="commonly_tools_item">
-        <text class="iconfont icon-shoucang1"></text>
-        <text class="tools_item_txt">课表</text>
-      </navigator>
-      <navigator class="commonly_tools_item">
-        <text class="iconfont icon-shoucang1"></text>
-        <text class="tools_item_txt">我的收藏</text>
-      </navigator>
-      <navigator class="commonly_tools_item">
-        <text class="iconfont icon-shoucang1"></text>
-        <text class="tools_item_txt">我的日历</text>
-      </navigator>
-      <navigator class="commonly_tools_item">
-        <text class="iconfont icon-shoucang1"></text>
-        <text class="tools_item_txt">动态</text>
-      </navigator>
-      <navigator class="commonly_tools_item">
-        <text class="iconfont icon-shoucang1"></text>
-        <text class="tools_item_txt">课表</text>
-      </navigator>
+      
     </view>
 
   </view>
@@ -118,33 +97,6 @@
       </view>
       <view class="btm_tools_arrow iconfont icon-iconzhengli_fenxiang"></view>
     </navigator>
-    <navigator class="btm_tools_item">
-      <view class="btm_tools_name_wrap">
-        <text class="iconfont icon-zhifu-01"></text>
-        <text class="btm_tools_name">发布二手</text>
-      </view>
-      <view class="btm_tools_arrow iconfont icon-iconzhengli_fenxiang"></view>
-    </navigator>
-    <navigator class="btm_tools_item">
-      <view class="btm_tools_name_wrap">
-        <text class="iconfont icon-zhifu-01"></text>
-        <text class="btm_tools_name">好书推荐</text>
-      </view>
-      <view class="btm_tools_arrow iconfont icon-iconzhengli_fenxiang"></view>
-    </navigator>
-    <navigator class="btm_tools_item">
-      <view class="btm_tools_name_wrap">
-        <text class="iconfont icon-zhifu-01"></text>
-        <text class="btm_tools_name">好物推荐</text>
-      </view>
-      <view class="btm_tools_arrow iconfont icon-iconzhengli_fenxiang"></view>
-    </navigator>
-    <navigator class="btm_tools_item">
-      <view class="btm_tools_name_wrap">
-        <text class="iconfont icon-zhifu-01"></text>
-        <text class="btm_tools_name">动态这是</text>
-      </view>
-      <view class="btm_tools_arrow iconfont icon-iconzhengli_fenxiang"></view>
-    </navigator>
+    
   </view>
 </view>

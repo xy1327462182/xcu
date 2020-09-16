@@ -69,6 +69,9 @@
   line-height: 40rpx;
   font-size: 28rpx;
   margin-bottom: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .pay_page .pay_content .add_wrap .add_contetn {
   width: 100%;

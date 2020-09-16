@@ -19,7 +19,6 @@ App({
       })
     }
 
-    this.globalData = {
-    }
+    
   }
 })

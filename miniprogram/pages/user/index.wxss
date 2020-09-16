@@ -97,8 +97,14 @@ page .tools_item_wrap .commonly_tools_wrap .commonly_tools_content .commonly_too
   align-items: center;
   margin-top: 24rpx;
 }
-page .tools_item_wrap .commonly_tools_wrap .commonly_tools_content .commonly_tools_item .iconfont {
-  font-size: 50rpx;
+page .tools_item_wrap .commonly_tools_wrap .commonly_tools_content .commonly_tools_item .tools_item_img_wrap {
+  width: 66rpx;
+  height: 66rpx;
+  overflow: hidden;
+}
+page .tools_item_wrap .commonly_tools_wrap .commonly_tools_content .commonly_tools_item .tools_item_img_wrap .tools_item_img {
+  width: 100%;
+  height: 100%;
 }
 page .tools_item_wrap .commonly_tools_wrap .commonly_tools_content .commonly_tools_item .tools_item_txt {
   font-size: 28rpx;

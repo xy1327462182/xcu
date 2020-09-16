@@ -1,18 +1,18 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/reward/index",
     "pages/discover/index",
     "pages/publish/index",
-    "pages/localFood/index",
     "pages/user/index",
     "pages/myCollections/index",
-    "pages/searchPage/index",
-    "pages/demo1/index",
+    "pages/myOrders/index",
+    "pages/myGoods/index",
+    "pages/myReward/index",
     "pages/userSetting/index",
     "pages/weatherPage/index",
     "pages/publishGoods/index",
     "pages/publishTrends/index",
-    "pages/publishCircle/index",
     "pages/publishReward/index",
     "pages/goodsDetails/index",
     "pages/pay/index",
@@ -34,10 +34,10 @@
         "selectedIconPath": "./tabBarIco/home2.png"
       },
       {
-        "pagePath": "pages/localFood/index",
-        "text": "美食",
-        "iconPath": "./tabBarIco/shopcar1.png",
-        "selectedIconPath": "./tabBarIco/shopcar2.png"
+        "pagePath": "pages/reward/index",
+        "text": "兼职",
+        "iconPath": "./tabBarIco/reward1.png",
+        "selectedIconPath": "./tabBarIco/reward2.png"
       },
       {
         "pagePath": "pages/publish/index",
@@ -59,7 +59,7 @@
       }
     ],
     "color": "#333",
-    "selectedColor": "#25dbe6"
+    "selectedColor": "#ff4466"
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2",

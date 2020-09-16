@@ -1,0 +1,44 @@
+<view class="myGoods_hd">我的商品</view>
+<view class="myGoods_tabs">
+
+  <view  
+  wx:for="{{tabList}}"
+  wx:key="id"
+  class="tabs_item {{item.isActive?'tabActive':''}}"
+  bindtap="handelTab"
+  data-index="{{item.id}}"
+  >{{item.name}}</view>
+  
+</view>
+
+<view class="myGoods_content">
+
+  <view class="goods_item"
+  wx:for="{{goodsList}}"
+  wx:key="_id"
+  >
+    <view class="g_hd">
+      <view class="g_status">商品状态：{{item.status}}</view>
+    </view>
+    <navigator class="g_bd" url="/pages/goodsDetails/index?id={{item._id}}">
+      <view class="g_img_wrap">
+        <image class="g_img" src="{{item.imgIdArr[0]}}"></image>
+      </view>
+      <view class="g_info_wrap">
+        <view class="g_name">{{item.goodsInfoTxt}}</view>
+        <view class="g_support">{{item.supports}}人想要</view>
+        <view class="g_price">￥{{item.goodsPrice}}</view>
+      </view>
+    </navigator>
+
+    <view class="g_btm">
+      <view class="createTime">{{item.createTime}}</view>
+      <view class="g_btm_tools">
+        
+        <view class="tools_item del_goods" bindtap="handelDelGoods" data-id="{{item._id}}">删除商品</view>
+        <view class="tools_item" wx:if="{{item.status!='已售'}}" bindtap="handelSold" data-id="{{item._id}}">我已卖出</view>
+        <view class="tools_item" wx:if="{{item.status=='已售'}}" bindtap="handelSell" data-id="{{item._id}}">重新上架</view>
+      </view>
+    </view>
+  </view>
+</view>

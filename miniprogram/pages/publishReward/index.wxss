@@ -1,1 +1,56 @@
-/* pages/publishReward/index.wxss */
+.page {
+  padding: 0 20rpx 30rpx;
+  background-color: #f2f2f2;
+}
+.page .p_title {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 38rpx;
+  font-weight: 650;
+}
+.page .p_content {
+  background-color: #fff;
+  border: 1rpx solid #ccc;
+  padding: 16rpx;
+}
+.page .p_content .ipt_item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 90rpx;
+  border-bottom: 1rpx solid #ccc;
+  margin: 14rpx 0;
+}
+.page .p_content .requirements_wrap {
+  width: 100%;
+}
+.page .p_content .requirements_wrap .requirements {
+  border: 1px solid #ccc;
+  padding: 12rpx;
+  margin: 10rpx 0;
+  width: 95%;
+  height: 300rpx;
+  border-radius: 8rpx;
+}
+.page .p_content .btn_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 28rpx 0 16rpx;
+}
+.page .p_content .btn_wrap .btn {
+  width: 315rpx;
+  height: 76rpx;
+  background-color: #25dbe6;
+  border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 650;
+  font-size: 32rpx;
+}

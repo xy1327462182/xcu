@@ -14,7 +14,8 @@ Page({
     indexNavList: [],
     weatherMsg: null,
     city: '',
-    locationId: ''
+    locationId: '',
+    goodsList: []
   },
 
   /**
@@ -47,6 +48,8 @@ Page({
         console.log(err);
       }
     })
+    //获取商品信息
+    that.getGoodsDate()
   },
   //获取城市信息
   async getCity(latitude,longitude){
@@ -99,6 +102,17 @@ Page({
         }
       })
     }
+  },
+  //获取商品信息
+  getGoodsDate(){
+    let that = this
+    db.collection('xcu_goods').limit(15).get()
+      .then(res1=>{
+        let goodsList = res1.data 
+        that.setData({
+          goodsList
+        })
+      })
   },
 
 

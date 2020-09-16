@@ -46,7 +46,7 @@ page .publish_page .publish_wrap .publish_item_wrap .publish_item {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 10rpx 26rpx;
+  margin: 10rpx 30rpx;
 }
 page .publish_page .publish_wrap .publish_item_wrap .publish_item .item_img {
   width: 60rpx;

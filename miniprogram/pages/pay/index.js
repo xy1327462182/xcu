@@ -1,5 +1,6 @@
 // pages/pay/index.js
 let db = wx.cloud.database()
+var app = getApp();
 
 Page({
 
@@ -16,13 +17,40 @@ Page({
 
   getAddress(){
     let myAddress = wx.getStorageSync('myAddress') || null
-    if (myAddress) {
-      this.setData({
-        myAddress
+    this.setData({
+      myAddress
+    })
+  },
+
+  //修改地址
+  handelChangeAddress(){
+    wx.setStorageSync('myAddress', null)
+    this.getAddress()
+  },
+
+  //是否登录
+  isLogin(){
+    //如果没登录则禁止行为
+    let uid = wx.getStorageSync('userLogin')._openid
+    if (!uid) {
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none'
       })
-    } else {
-      
+      return false
     }
+    return true
+  },
+  //事件格式装换
+  formatDate(date) {
+    var date = new Date(date);
+    var YY = date.getFullYear() + '-';
+    var MM = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+    var DD = (date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate());
+    var hh = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+    var mm = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+    var ss = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds());
+    return YY + MM + DD +" "+hh + mm + ss;
   },
 
   handelUname(e){
@@ -51,6 +79,10 @@ Page({
   },
 
   handelSub(){
+    let that = this
+    if (!that.isLogin()) {
+      return 
+    }
     let {uname,phone,infoAddress} = this.data
     let myAddress = {
       uname,
@@ -61,8 +93,61 @@ Page({
     this.getAddress()
   },
 
-  handelBuy(){
-    
+  async handelBuy(){
+    let that = this
+    let myAddress = wx.getStorageSync('myAddress') || null
+    if (!myAddress) {
+      wx.showToast({
+        title: '请添加收货地址',
+        icon: "none"
+      })
+    } else {
+      //从缓存中删掉  从数据库中删掉、
+      wx.showLoading({
+        title: '拼命加载中',
+      })
+      //获取缓存数据
+      let collectionList = wx.getStorageSync('collectionList')
+      let {goodInfo} = that.data
+      //删除本商品数据 获得新收藏数组
+      let newCollectionList = collectionList.filter((v)=>{
+        return v.goodsId != goodInfo._id
+      })
+      //重新存入缓存
+      wx.setStorageSync('collectionList', newCollectionList)
+      //获取用户信息
+      let _openid = that.data.goodInfo.userInfo.openId
+      //更新数据库
+      await wx.cloud.callFunction({
+        name: "updateUserInfo",
+        data: {
+          _openid,
+          collectionList: newCollectionList
+        }
+      })
+      wx.hideLoading()
+      await wx.showToast({
+        title: '购买成功',
+        icon: 'success',
+      })
+      //创建订单 存入数据库
+      let newOrder = {
+        orderId: Date.now() + parseInt(Math.random()*10000),
+        goodsInfo: that.data.goodInfo,
+        orderDate: that.formatDate(Date.now()) 
+      }
+      //订单 存入数据库
+      await wx.cloud.callFunction({
+        name: "updateUserInfo",
+        data: {
+          _openid,
+          newOrder: newOrder
+        }
+      })
+      wx.switchTab({
+        url: '/pages/user/index',
+      })
+    }
   },
 
   /**

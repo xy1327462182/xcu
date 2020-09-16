@@ -1,0 +1,19 @@
+<view class="re_title">兼职大厅</view>
+<view class="re_content">
+  <navigator class="re_item"
+  wx:for="{{rewardList}}"
+  wx:key="_id"
+  >
+    <view class="item_author_msg">
+      <image class="author_img" src="{{item.avatarUrl}}"></image>
+      <text class="author_name">{{item.nickName}}</text>
+    </view>
+    <view class="item_con">
+      <view class="re_item_name">{{item.station}}</view>
+      <view class="re_item_storeName">{{item.storeName}}</view>
+      <view class="re_item_requirements">{{item.requirements}}</view>
+    </view>
+    <view class="re_item_salary">+{{item.salary}}</view>
+  </navigator>
+
+</view>

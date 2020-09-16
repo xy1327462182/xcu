@@ -1,0 +1,117 @@
+.myGoods_hd {
+  width: 100%;
+  height: 100rpx;
+  background-color: #f9f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 34rpx;
+  border: 1rpx solid #ccc;
+}
+.myGoods_tabs {
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2rpx solid #ccc;
+  color: #666;
+  background-color: #ff9f a;
+}
+.myGoods_tabs .tabActive {
+  color: #f3581b;
+  border-bottom: 2rpx solid #f3581b;
+}
+.myGoods_tabs .tabs_item {
+  height: 90rpx;
+  line-height: 90rpx;
+  margin: 0 50rpx;
+}
+.myGoods_content {
+  width: 100%;
+}
+.myGoods_content .goods_item {
+  width: 100%;
+  padding: 0 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-bottom: 20rpx solid #ccc;
+}
+.myGoods_content .goods_item .g_hd {
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-bottom: 1rpx solid #ccc;
+}
+.myGoods_content .goods_item .g_hd .g_status {
+  color: #f3581b;
+}
+.myGoods_content .goods_item .g_bd {
+  width: 100%;
+  display: flex;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #ccc;
+}
+.myGoods_content .goods_item .g_bd .g_img_wrap {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.myGoods_content .goods_item .g_bd .g_img_wrap .g_img {
+  width: 210rpx;
+  height: 210rpx;
+}
+.myGoods_content .goods_item .g_bd .g_info_wrap {
+  flex: 4;
+  padding-left: 16rpx;
+}
+.myGoods_content .goods_item .g_bd .g_info_wrap .g_name {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  font-size: 32rpx;
+}
+.myGoods_content .goods_item .g_bd .g_info_wrap .g_support {
+  font-size: 28rpx;
+  color: #999;
+  margin: 10rpx 0;
+}
+.myGoods_content .goods_item .g_bd .g_info_wrap .g_price {
+  color: #ff0011;
+  font-size: 34rpx;
+  margin: 12rpx 0;
+}
+.myGoods_content .goods_item .g_btm {
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.myGoods_content .goods_item .g_btm .createTime {
+  color: #666;
+}
+.myGoods_content .goods_item .g_btm .g_btm_tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.myGoods_content .goods_item .g_btm .g_btm_tools .tools_item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150rpx;
+  height: 54rpx;
+  border-radius: 27rpx;
+  background-color: #8bc34a;
+  color: #fff;
+  margin-left: 10rpx;
+}
+.myGoods_content .goods_item .g_btm .g_btm_tools .del_goods {
+  background-color: #ff0011;
+}

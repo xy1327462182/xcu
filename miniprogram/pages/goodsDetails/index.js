@@ -40,7 +40,19 @@ Page({
     })
     wx.hideLoading()
   },
-
+  //是否登录
+  isLogin(){
+    //如果没登录则禁止行为
+    let uid = wx.getStorageSync('userLogin')._openid
+    if (!uid) {
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none'
+      })
+      return false
+    }
+    return true
+  },
   //是否显示点赞
   isShowZan(id){
     //获取缓存中的点赞状态 收藏状态
@@ -78,6 +90,10 @@ Page({
   //添加评论按钮
   async handelAddTap(){
     let that = this
+    if (!that.isLogin()) {
+      return 
+    }
+    
     //获取输入框的值和旧评论数组
     let {value,comments}=this.data
     if (value) {
@@ -124,6 +140,10 @@ Page({
 
   //点赞
   async handelSupport(){
+    let that = this
+    if (!that.isLogin()) {
+      return 
+    }
     let {isZan,goodsMsg} = this.data
     if (!isZan) {
       let supports = goodsMsg.supports || 0
@@ -153,6 +173,10 @@ Page({
 
   //收藏
   async handelCollection(){
+    let that = this
+    if (!that.isLogin()) {
+      return 
+    }
     //获取收藏状态 商品信息
     let {isCollection,goodsMsg} = this.data
     //获取本商品数据

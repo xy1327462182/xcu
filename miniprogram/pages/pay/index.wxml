@@ -19,7 +19,10 @@
     <!-- 地址部分 -->
     <block wx:if="{{myAddress.uname}}">
       <view class="add_wrap">
-        <view class="add_title">收货地址</view>
+        <view class="add_title">
+          <text>收货地址</text>
+          <text bindtap="handelChangeAddress">修改地址</text>
+        </view>
         <view class="add_contetn">
           <view class="uname">{{myAddress.uname}}<text class="phone">{{myAddress.phone}}</text> </view>
           <view class="info_address">{{myAddress.infoAddress}}</view>
@@ -33,8 +36,8 @@
       <view class="add_address_wrap">
         <view class="ipt_title">还没有地址，赶快添加吧！</view>
         <input class="ipt_name" placeholder="请输入收货人姓名" bindblur="handelUname"></input>
-        <input class="ipt_name" placeholder="请输入 收货人手机号" bindblur="handelPhone"></input>
-        <input class="ipt_name" placeholder="请输入 详细收货地址" bindblur="handelInfoAddress"></input>
+        <input class="ipt_name" placeholder="请输入收货人手机号" bindblur="handelPhone"></input>
+        <input class="ipt_name" placeholder="请输入详细收货地址" bindblur="handelInfoAddress"></input>
         <view class="sub_btn_wrap">
           <view class="sub_btn" bindtap="handelSub">保存</view>
         </view>
@@ -44,7 +47,7 @@
 
   <!-- 底部工具 -->
   <view class="btm_tools">
-    <view class="buy" bindtap="handelBuy">线下自提</view>
+    <view class="buy" bindtap="handelBuy">立即购买</view>
     <view class="price_box">
       实际价格：<text class="price_num">￥{{goodInfo.goodsPrice}}</text>
     </view>

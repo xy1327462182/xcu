@@ -1,4 +1,4 @@
-// pages/demo1/index.js
+// pages/myReward/index.js
 Page({
 
   /**

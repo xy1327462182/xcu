@@ -1,0 +1,118 @@
+.myGoods_hd{
+    width: 100%;
+    height: 100rpx;
+    background-color: #f9f9fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 34rpx;
+    border: 1rpx solid #ccc;
+}
+.myGoods_tabs{
+    width: 100%;
+    height: 90rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 2rpx solid #ccc;
+    color: #666;
+    background-color: #ff9fa;
+    .tabActive{
+        color: #f3581b;
+        border-bottom: 2rpx solid #f3581b;
+    }
+    .tabs_item{
+        height: 90rpx;
+        line-height: 90rpx;
+        margin: 0 50rpx;
+    }
+}
+.myGoods_content{
+    width: 100%;
+    .goods_item{
+        width: 100%;
+        padding: 0 30rpx;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-bottom: 20rpx solid #ccc;
+        .g_hd{
+            width: 100%;
+            height: 80rpx;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            border-bottom: 1rpx solid #ccc;
+            .g_status{
+                color: #f3581b;
+            }
+        }
+        .g_bd{
+            width: 100%;
+            display: flex;
+            padding: 24rpx 0;
+            border-bottom: 1rpx solid #ccc;
+            .g_img_wrap{
+                flex: 2;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .g_img{
+                    width: 210rpx;
+                    height: 210rpx;
+                }
+            }
+            .g_info_wrap{
+                flex: 4;
+                padding-left: 16rpx;
+                .g_name{
+                    display: -webkit-box;
+                    overflow: hidden;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 3;
+                    font-size: 32rpx;
+                }
+                .g_support{
+                    font-size: 28rpx;
+                    color: #999;
+                    margin: 10rpx 0;
+                }
+                .g_price{
+                    color: #ff0011;
+                    font-size: 34rpx;
+                    margin: 12rpx 0;
+                }
+                
+            }
+        }
+        .g_btm{
+            width: 100%;
+            height: 80rpx;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .createTime{
+                color: #666;
+            }
+            .g_btm_tools{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .tools_item{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 150rpx;
+                    height: 54rpx;
+                    border-radius: 27rpx;
+                    background-color: #8bc34a;
+                    color: #fff;
+                    margin-left: 10rpx;
+                }
+                .del_goods{
+                    background-color: #ff0011;
+                }
+            }
+        }
+    }
+}

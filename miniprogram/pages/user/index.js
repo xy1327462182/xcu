@@ -11,17 +11,43 @@ Page({
    * 页面的初始数据
    */
   data: {
-    uInfo: {}
+    uInfo: {},
+    tools: [
+      {
+        id: 0,
+        name: '我的收藏',
+        icoPath: 'cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/user/myCollections.png',
+        linkPath: "/pages/myCollections/index"
+      },
+      {
+        id: 1,
+        name: '我的订单',
+        icoPath: 'cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/user/myOrder.png',
+        linkPath: "/pages/myOrders/index"
+      },
+      {
+        id: 2,
+        name: '我的商品',
+        icoPath: 'cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/indexNav/跳蚤市场ico.png',
+        linkPath: "/pages/myGoods/index"
+      },
+      {
+        id: 3,
+        name: '我的兼职',
+        icoPath: 'cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/indexNav/去兼职.png',
+        linkPath: "/pages/myReward/index"
+      },
+    ]
   },
 
   //获取用户信息 实现注册/登录
-  handelGetUserInfo(e){
+  async handelGetUserInfo(e){
     let that=this
     let {errMsg}=e.detail
     if (errMsg==='getUserInfo:ok') {
       //用户授权了
       //调用云函数login 获取openid
-      wx.cloud.callFunction({
+      await wx.cloud.callFunction({
         name: "login",
         data: {},
         success:res1=>{
@@ -53,10 +79,18 @@ Page({
                 _openid:uid
               }
               wx.setStorageSync('userLogin', login)
+              //将用户openid存到公共数据中
+              getApp().globalData.openid = uid;
+              //将用户收藏夹数据存到缓存中
+              console.log(res2)
+              let collectionList = res2.data[0].collectionList
+              wx.setStorageSync('collectionList', collectionList)
+
               that.getLoginInfo()
             })
         }
       })
+      console.log(res1)
     } else if (errMsg==='getUserInfo:fail auth deny') {
       //用户取消授权了
       wx.showToast({
@@ -64,7 +98,6 @@ Page({
         icon: "none"
       })
     }
-       
   },
 
   //获取缓存中的登录信息 设置到app.globalData中

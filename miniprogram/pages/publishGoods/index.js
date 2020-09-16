@@ -167,8 +167,37 @@ Page({
     })
   },
 
+  //是否登录
+  isLogin(){
+    //如果没登录则禁止行为
+    let uid = wx.getStorageSync('userLogin')._openid
+    if (!uid) {
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none'
+      })
+      return false
+    }
+    return true
+  },
+  //事件格式装换
+  formatDate(date) {
+    var date = new Date(date);
+    var YY = date.getFullYear() + '-';
+    var MM = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+    var DD = (date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate());
+    var hh = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+    var mm = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+    var ss = (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds());
+    return YY + MM + DD +" "+hh + mm + ss;
+  },
+
   //发布商品
   async publish(){
+    let that = this
+    if (!that.isLogin()) {
+      return 
+    }
     wx.showLoading({
       title: '拼命上传中',
     })
@@ -207,6 +236,7 @@ Page({
         supports: 0,
         num: 0,
         status: "上架",
+        createTime: that.formatDate(Date.now())
       },
     })
     wx.hideLoading()

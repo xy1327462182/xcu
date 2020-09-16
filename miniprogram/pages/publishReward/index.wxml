@@ -1,2 +1,58 @@
-<!--pages/publishReward/index.wxml-->
-<text>pages/publishReward/index.wxml</text>
+<view class="page">
+
+  <view class="p_title">发布兼职</view>
+
+  <view class="p_content">
+    <view class="re_type_wrap ipt_item">
+      <text>兼职类型：</text>
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio">
+          <radio value="兼职"/>兼职
+        </label>
+        <label class="radio">
+          <radio value="全职"/>全职
+        </label>
+      </radio-group>
+    </view>
+
+    <view class="storeName_wrap ipt_item">
+      <text>商家名称：</text>
+      <input class="storeName" bindblur="handelStoreName" placeholder="请输入商家名称"></input>
+    </view>
+
+    <view class="station_wrap ipt_item">
+      <text>招聘岗位：</text>
+      <input class="station" bindblur="handelStation" placeholder="请输入岗位名称"></input>
+    </view>
+
+    <view class="salary_wrap ipt_item">
+      <text>薪资待遇：</text>
+      <input class="salary" bindblur="handelSalary" placeholder="请输入薪资待遇"></input>
+    </view>
+
+    <view class="work_hours_wrap ipt_item">
+      <text>上班时间：</text>
+      <input class="work_hours" bindblur="handelWorkHours" placeholder="请输入上班时间"></input>
+    </view>
+
+    <view class="requirements_wrap">
+      <text>工作要求：</text>
+      <textarea class="requirements" bindblur="handelRequirements" placeholder="请输入工作要求">
+      </textarea>
+    </view>
+
+    <view class="workAddress_wrap ipt_item">
+      <text>工作地点：</text>
+      <input class="workAddress" bindblur="handelWorkAddress" placeholder="请输入工作地点"></input>
+    </view>
+
+    <view class="contact_wrap ipt_item">
+      <text>联系方式：</text>
+      <input class="contact" bindblur="handelContact" placeholder="请输入联系方式"></input>
+    </view>
+
+    <view class="btn_wrap">
+      <view class="btn" bindtap="publishReward">发布</view>
+    </view>
+  </view>
+</view>

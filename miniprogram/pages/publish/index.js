@@ -17,11 +17,6 @@ Page({
         link: "/pages/publishTrends/index"
       },
       {
-        name: "创建圈子",
-        icoPath: "cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/publishPage/publishIco_circle.png",
-        link: "/pages/publishCircle/index"
-      },
-      {
         name: "发布兼职",
         icoPath: "cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/publishPage/publishIco_reward.png",
         link: "/pages/publishReward/index"

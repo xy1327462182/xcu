@@ -18,9 +18,9 @@
   </view>
 
   <!-- 搜索模块 -->
-  <view class="index_search">
+  <!-- <view class="index_search">
     <view class="index_search_wrap"><searchInput></searchInput></view>
-  </view>
+  </view> -->
 </view>
 
 <!-- 轮播图部分-->
@@ -45,17 +45,19 @@
   wx:for="{{indexNavList}}"
   wx:key="name"
   url="{{item.linkPath}}"
+  open-type="switchTab"
   >
-    <view class="iconfont {{item.iconClassName}}"></view>
+    <view class="nav_ico_wrap">
+      <image src="{{item.icoPath}}" class="nav_ico_img"></image>
+    </view>
     <view class="nav_txt">{{item.name}}</view>
   </navigator>
 </view>
 
 <!-- 楼层模块 -->
 <view class="floor_wrap">
-  <!-- 优质动态 -->
-  <trendsList></trendsList>
+  
 
   <!-- 优质二手商品 -->
-  <goodsList></goodsList>
+  <goodsList goodsList="{{goodsList}}"></goodsList>
 </view>  

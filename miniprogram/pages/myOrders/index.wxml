@@ -1,0 +1,36 @@
+<view class="order_hd">我的订单</view>
+<view class="order_content">
+
+  <block wx:if="{{orderList.length > 0}}">
+
+    <view class="order_item"
+    wx:for="{{orderList}}"
+    wx:key="orderId"
+    >
+      <!-- 头部 -->
+      <view class="order_item_hd">
+        <view class="order_num">订单编号：{{item.orderId}}</view>
+        <view class="order_method">线下自提</view>
+      </view>
+      <!-- 主体 -->
+      <view class="order_item_bd">
+        <view class="goods_img_wrap">
+          <image class="goods_img" src="{{item.goodsInfo.imgIdArr[0]}}"></image>
+        </view>
+        <view class="goods_info_wrap">
+          {{item.goodsInfo.goodsInfoTxt}}
+        </view>
+      </view>
+      <!-- 底部 -->
+      <view class="order_item_btm">
+        <view class="order_time">{{item.orderDate}}</view>
+        <view class="order_price">订单价格:<text>￥{{item.goodsInfo.goodsPrice}}</text></view>
+      </view>
+    </view>
+  </block>
+
+  <block wx:else>
+    <view class="none_order">您还没有订单哦</view>
+  </block>
+
+</view>
