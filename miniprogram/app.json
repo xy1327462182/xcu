@@ -15,6 +15,7 @@
     "pages/publishTrends/index",
     "pages/publishReward/index",
     "pages/goodsDetails/index",
+    "pages/rewradDetails/index",
     "pages/pay/index",
     "pages/addAddress/index"
   ],

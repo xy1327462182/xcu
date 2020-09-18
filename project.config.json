@@ -25,7 +25,7 @@
 			"outputPath": ""
 		},
 		"useIsolateContext": true,
-		"useCompilerModule": false,
+		"useCompilerModule": true,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"appid": "wx8a8a49e8b91e0a7b",
@@ -166,6 +166,12 @@
 					"name": "我的兼职页",
 					"pathName": "pages/myReward/index",
 					"query": "id=350d8cf95f607a8d0003e89452bf56bc",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "职位详情页",
+					"pathName": "pages/rewradDetails/index",
 					"scene": null
 				}
 			]

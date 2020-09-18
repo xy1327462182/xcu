@@ -1,3 +1,5 @@
+//引入工具
+import {formatDate} from "../../utils/formatDate.js";
 // pages/publishReward/index.js
 Page({
 
@@ -88,7 +90,8 @@ Page({
       success: function(res1) {
         data.avatarUrl = res1.userInfo.avatarUrl,
         data.nickName = res1.userInfo.nickName,
-        data._openid = _openid
+        data._openid = _openid,
+        data.createTime = formatDate(Date.now())
         //添加到数据库
         that.addReward(data)
         

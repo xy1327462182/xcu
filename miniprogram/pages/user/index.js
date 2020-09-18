@@ -82,7 +82,6 @@ Page({
               //将用户openid存到公共数据中
               getApp().globalData.openid = uid;
               //将用户收藏夹数据存到缓存中
-              console.log(res2)
               let collectionList = res2.data[0].collectionList
               wx.setStorageSync('collectionList', collectionList)
 
@@ -90,7 +89,6 @@ Page({
             })
         }
       })
-      console.log(res1)
     } else if (errMsg==='getUserInfo:fail auth deny') {
       //用户取消授权了
       wx.showToast({

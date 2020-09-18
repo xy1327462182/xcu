@@ -1,53 +1,30 @@
-// pages/myReward/index.js
+const db = wx.cloud.database()
+// pages/rewradDetails/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    rewardList: []
-  },
-
-  async getRewardData(){
-    let that = this
-    wx.showLoading({
-      title: '拼命加载中',
-    })
-    //获取用户信息
-    let _openid = wx.getStorageSync('userLogin')._openid
-    let res1 = await wx.cloud.callFunction({
-      name: "getReward",
-      data: {
-        _openid
-      }
-    })
-    let rewardList = res1.result.res2.data.reverse()
-    that.setData({
-      rewardList
-    })
-    wx.hideLoading()
-  },
-
-  async handelDel(e){
-    wx.showLoading({
-      title: '删除中',
-    })
-    let _id = e.currentTarget.dataset.id
-    await wx.cloud.callFunction({
-      name: "delReward",
-      data: {
-        _id
-      }
-    })
-    this.getRewardData()
+    rewardData: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //获取数据
-    this.getRewardData()
+    let that = this
+    let id = options.id
+    //查找数据
+    db.collection('xcu_reward').doc(id).get()
+      .then(res1=>{
+        let rewardData = res1.data
+        console.log(rewardData);
+        
+        that.setData({
+          rewardData
+        })
+      }) 
   },
 
   /**
@@ -61,6 +38,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+
   },
 
   /**

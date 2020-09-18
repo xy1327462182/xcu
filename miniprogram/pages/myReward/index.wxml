@@ -1,1 +1,27 @@
-<view class="myRe_title">我的兼职</view>
+<view class="re_nav">
+  <view class="nav_item">我发布的</view>
+</view>
+
+<view class="re_content">
+  <view class="re_item"
+  wx:for="{{rewardList}}"
+  wx:key="_id"
+  >
+    <navigator class="item_wrap" url="/pages/rewradDetails/index?id={{item._id}}">
+      <view class="re_item_left">
+        <view class="name_wrap">
+          <view class="station">{{item.station}}</view>
+          <view class="storeName">{{item.storeName}}</view>
+        </view>
+        <view class="requirements">{{item.requirements}}</view>
+      </view>
+      <view class="re_item_right">
+        <view class="salary">{{item.salary}}</view>
+        <view class="time">{{item.createTime}}</view>
+      </view>
+    </navigator>
+    <view class="item_btm">
+      <view class="re_del" bindtap="handelDel" data-id="{{item._id}}">删除</view>
+    </view>
+  </view>
+</view>
