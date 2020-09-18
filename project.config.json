@@ -172,6 +172,13 @@
 					"id": -1,
 					"name": "职位详情页",
 					"pathName": "pages/rewradDetails/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发布动态页",
+					"pathName": "pages/publishTrends/index",
 					"scene": null
 				}
 			]

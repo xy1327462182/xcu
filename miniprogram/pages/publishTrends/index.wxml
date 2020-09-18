@@ -1,2 +1,37 @@
-<!--pages/publishTrends/index.wxml-->
-<text>pages/publishTrends/index.wxml</text>
+<view class="p_title">
+  <view class="p_candel" bindtap="cancelHandel">取消</view>
+  <view class="p_tit_txt">发表动态</view>
+  <view class="publish" bindtap="publish">发表</view>
+</view>
+<view class="p_uInfo">
+  <view class="author_avatar">
+    <image src="{{authorAvatar}}" class="avatar"></image>
+  </view>
+  <view class="author_nickName">{{authorNickName}}</view>
+</view>
+<view class="p_content">
+
+  <textarea class="trends_txt" show-confirm-bar="false" maxlength="1000" placeholder="分享你的所想..." bindblur="getTextVal"></textarea>
+
+  <view class="trends_imgs_wrap">
+
+    <view 
+    class="img_item"
+    wx:for="{{imgList}}"
+    wx:key="item"
+    bindtap="handelPicTap"
+    data-src="{{item}}"
+    >
+    
+      <image src="{{item}}" mode="widthFix"   class="goods_img"></image>
+      <view class="del_btn iconfont icon-cuohao"  catchtap="delImgs" data-index="{{index}}"></view>
+	  </view>
+    
+    <view class="img_item" wx:if="{{imgList.length<9}}">
+      <view class="add_pics iconfont icon-xiangji" bindtap="addPics"></view>
+    </view>
+
+  </view>
+
+</view>
+<view class="btm"></view>

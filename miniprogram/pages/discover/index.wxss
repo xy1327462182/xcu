@@ -77,29 +77,32 @@ page .dis_content_trends .trends_item .item_imgs .item_img {
   border: 4rpx solid #fff;
   border-radius: 16rpx;
 }
+page .dis_content_trends .trends_item .item_imgs .one_img {
+  width: 690rpx;
+}
+page .dis_content_trends .trends_item .item_imgs .two_img {
+  width: 345rpx;
+}
 page .dis_content_trends .trends_item .item_btm {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  padding: 0 34rpx 0 4rpx;
+  padding: 0 4rpx;
 }
 page .dis_content_trends .trends_item .item_btm .operation {
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 page .dis_content_trends .trends_item .item_btm .operation .support {
-  margin-right: 60rpx;
   color: #888;
-  font-size: 28rpx;
+  font-size: 30rpx;
 }
-page .dis_content_trends .trends_item .item_btm .operation .comment {
-  font-size: 28rpx;
+page .dis_content_trends .trends_item .item_btm .operation text {
   color: #888;
-}
-page .dis_content_trends .trends_item .item_btm .more {
-  font-size: 28rpx;
-  color: #888;
+  font-size: 30rpx;
+  margin-left: 8rpx;
 }
 page .dis_content_goods {
   background-color: #fff;

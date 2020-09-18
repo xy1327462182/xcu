@@ -20,6 +20,7 @@ Page({
       }
     ],
     goodsList: [],
+    trendsList: [],
     nowTabContent: 0,
     skips: 0
   },
@@ -30,46 +31,85 @@ Page({
     disTabsList.forEach(v=>{
       v.id === id ? v.isActive=true:v.isActive=false
     })
+    //点击tab栏切换 更改当前页索引 并清空旧数据 重新请求
     this.setData({
       disTabsList,
-      nowTabContent: id
+      nowTabContent: id,
+      goodsList: [],
+      skip: 0
     })
+    this.getGoodsData(6,0)
   },
 
   //获取商品数据
   async getGoodsData(num=6,skip=0){
     let that = this
+    let {nowTabContent} = that.data
     wx.showLoading({
       title: '拼命加载中',
     })
-    //调用云函数查询数据
-    let result = await wx.cloud.callFunction({
-      name: 'getGoods',
-      data: {
-        num: 6,
-        skip,
-      }
-    })
-    //新获得的数据
-    let newGoodsList = result.result.data
-    if (newGoodsList.length <= 0) {
-      wx.showToast({
-        title: '越努力，越幸运！到底啦！',
-        icon: 'none',
-        mask: true,
-        duration: 600
+    if (nowTabContent == 0) {
+      //加载商品数据
+      //调用云函数查询商品数据
+      let result = await wx.cloud.callFunction({
+        name: 'getGoods',
+        data: {
+          num: 6,
+          skip,
+        }
       })
-      return
+      //新获得的数据
+      let newGoodsList = result.result.data
+      if (newGoodsList.length <= 0) {
+        wx.showToast({
+          title: '越努力，越幸运！到底啦！',
+          icon: 'none',
+          mask: true,
+          duration: 600
+        })
+        return
+      }
+      //获取旧数据
+      let {goodsList}=that.data
+      //整合新数据
+      goodsList = [...goodsList,...newGoodsList]
+      let skips = goodsList.length
+      that.setData({
+        goodsList,
+        skips
+      })
+    } else if (nowTabContent == 1) {
+      //加载动态数据
+      //调用云函数查询动态数据
+      let result2 = await wx.cloud.callFunction({
+        name: 'getTrends',
+        data: {
+          num: 6,
+          skip,
+        }
+      })
+      //新获得的数据
+      let newTrendsList = result2.result.data
+      if (newTrendsList.length <= 0) {
+        wx.showToast({
+          title: '越努力，越幸运！到底啦！',
+          icon: 'none',
+          mask: true,
+          duration: 600
+        })
+        return
+      }
+      //获取旧数据
+      let {trendsList}=that.data
+      //整合新数据
+      trendsList = [...trendsList,...newTrendsList]
+      let skips = trendsList.length
+      that.setData({
+        trendsList,
+        skips
+      })
     }
-    //获取旧数据
-    let {goodsList}=that.data
-    //整合新数据
-    goodsList = [...goodsList,...newGoodsList]
-    let skips = goodsList.length
-    that.setData({
-      goodsList,
-      skips
-    })
+    
     wx.hideLoading()
     wx.stopPullDownRefresh()
   },

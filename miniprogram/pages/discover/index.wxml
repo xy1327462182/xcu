@@ -8,106 +8,38 @@
 
 
 <view class="dis_content_trends" wx:elif="{{nowTabContent==1}}">
-	<view class="trends_item">
+
+
+	<view class="trends_item"
+  wx:for="{{trendsList}}"
+  wx:key="_id"
+  >
 		<view class="item_author_wrap">
 			<view class="author_avatar_wrap">
-        <image src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/avatar.jpg" class="author_avatar"></image>
+        <image src="{{item.authorAvator}}" class="author_avatar"></image>
       </view>
       <view class="author_name_wrap">
-        <view class="author_name">卷卷</view>
-        <view class="publish_time">1小时前</view>
+        <view class="author_name">{{item.authorNickName}}</view>
+        <view class="publish_time">{{item.createTime}}</view>
       </view>
 		</view>
-		<view class="item_txt">这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容</view>
+		<view class="item_txt">{{item.trendsInfoTxt}}</view>
 		<view class="item_imgs">
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220452.jpg"></image>
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220435.jpg"></image>
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220452.jpg"></image>
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220452.jpg"></image>
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220435.jpg"></image>
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220452.jpg"></image>
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220452.jpg"></image>
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220435.jpg"></image>
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220452.jpg"></image>
+      <image 
+      mode="widthFix"
+      class="item_img {{item.imgIdArr.length == 1?'one_img':''}} {{item.imgIdArr.length == 2?'two_img':''}}" 
+      wx:for="{{item.imgIdArr}}"
+      wx:for-item="item2" 
+      wx:key="item2"
+      src="{{item2}}"></image>
+      
     </view>
 		<view class="item_btm">
       <view class="operation">
-        <view class="support iconfont icon-shoucang1">
-          <text>102</text>
-        </view>
-        <view class="comment iconfont icon-shoucang1">
-          <text>12</text>
-        </view>
+        <view class="support iconfont icon-zan"></view>
+        <text>{{item.supports}}</text>
       </view>
-      <view class="more iconfont icon-shoucang1"></view>
     </view>
 	</view>
-  <view class="trends_item">
-		<view class="item_author_wrap">
-			<view class="author_avatar_wrap">
-        <image src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/avatar.jpg" class="author_avatar"></image>
-      </view>
-      <view class="author_name_wrap">
-        <view class="author_name">卷卷</view>
-        <view class="publish_time">1小时前</view>
-      </view>
-		</view>
-		<view class="item_txt">这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容</view>
-		<view class="item_imgs">
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220452.jpg"></image>
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220435.jpg"></image>
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220452.jpg"></image>
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220452.jpg"></image>
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220435.jpg"></image>
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220452.jpg"></image>
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220452.jpg"></image>
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220435.jpg"></image>
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220452.jpg"></image>
-    </view>
-		<view class="item_btm">
-      <view class="operation">
-        <view class="support iconfont icon-shoucang1">
-          <text>102</text>
-        </view>
-        <view class="comment iconfont icon-shoucang1">
-          <text>12</text>
-        </view>
-      </view>
-      <view class="more iconfont icon-shoucang1"></view>
-    </view>
-	</view>
-  <view class="trends_item">
-		<view class="item_author_wrap">
-			<view class="author_avatar_wrap">
-        <image src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/avatar.jpg" class="author_avatar"></image>
-      </view>
-      <view class="author_name_wrap">
-        <view class="author_name">卷卷</view>
-        <view class="publish_time">1小时前</view>
-      </view>
-		</view>
-		<view class="item_txt">这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容这是内容</view>
-		<view class="item_imgs">
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220452.jpg"></image>
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220435.jpg"></image>
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220452.jpg"></image>
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220452.jpg"></image>
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220435.jpg"></image>
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220452.jpg"></image>
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220452.jpg"></image>
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220435.jpg"></image>
-      <image class="item_img" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/discover/微信图片_20200901220452.jpg"></image>
-    </view>
-		<view class="item_btm">
-      <view class="operation">
-        <view class="support iconfont icon-shoucang1">
-          <text>102</text>
-        </view>
-        <view class="comment iconfont icon-shoucang1">
-          <text>12</text>
-        </view>
-      </view>
-      <view class="more iconfont icon-shoucang1"></view>
-    </view>
-	</view>
+
 </view>

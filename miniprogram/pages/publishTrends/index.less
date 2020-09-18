@@ -1,0 +1,102 @@
+.p_title{
+    width: 100%;
+    padding: 0 20rpx;
+    height: 90rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .p_candel{
+        width: 120rpx;
+    }
+    .p_tit_txt{
+        font-size: 32rpx;
+        font-weight: 700;
+    }
+    .publish{
+        width: 120rpx;
+        height: 60rpx;
+        border-radius: 30rpx;
+        background-color: #25dbe6;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.p_uInfo{
+    width: 100%;
+    border-top: 20rpx solid #efefef;
+    height: 180rpx;
+    display: flex;
+    align-items: center;
+    padding-left: 20rpx;
+    .author_avatar{
+        margin-right: 30rpx;
+        .avatar{
+            width: 80rpx;
+            height: 80rpx;
+            border-radius: 50%;
+        }
+    }
+}
+.p_content{
+    padding: 0 20rpx;
+    .trends_txt{
+        width: 100%;
+        height: 280rpx;
+    }
+    .trends_imgs_wrap{
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        .img_item{
+            position: relative;
+            width: 230rpx;
+            height: 230rpx;
+            border-radius: 4rpx;
+            overflow: hidden;
+            background: rgba(0,0,0,.18);
+            margin-bottom: 10rpx;
+            &:nth-child(3n-1){
+                margin-left: 10rpx;
+                margin-right: 10rpx;
+            }
+            .goods_img{
+                width: 100%;
+                height: 100%;
+            }
+            .del_btn{
+                position: absolute;
+                right: 0;
+                top: 0;
+                color: #fff;
+                background: rgba(0,0,0,.38);
+                font-size: 28rpx;
+                width: 34rpx;
+                height: 34rpx;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .add_pics{
+                width: 100%;
+                height: 100%;
+                font-size: 100rpx;
+                color: rgba(0,0,0,.4);
+                text-align: center;
+                line-height: 230rpx;
+                
+            }
+            
+        }
+    }
+    .notes_wrap{
+        width: 100%;
+    }
+}
+.btm{
+    margin-top: 40rpx;
+    width: 100%;
+    height: 370rpx;
+    background-color: #efefef;
+}

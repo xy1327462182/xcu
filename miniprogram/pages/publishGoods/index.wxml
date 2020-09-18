@@ -16,10 +16,10 @@
   wx:for="{{imgList}}"
   wx:key="item"
   bindtap="handelPicTap"
-  data-src="{{item}}}"
+  data-src="{{item}}"
   >
     <image src="{{item}}" mode="widthFix" class="goods_img"></image>
-    <view class="del_btn iconfont icon-cuohao" bindtap="delImgs" data-index="{{index}}"></view>
+    <view class="del_btn iconfont icon-cuohao" catchtap="delImgs" data-index="{{index}}"></view>
 	</view>
 	
   <view class="img_item" wx:if="{{imgList.length<6}}">
