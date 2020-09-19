@@ -146,9 +146,8 @@ Page({
     }
     let {isZan,goodsMsg} = this.data
     if (!isZan) {
-      let supports = goodsMsg.supports || 0
+      let supports = true
       let _id=goodsMsg._id
-      supports++
       this.setData({
         isZan: true
       })

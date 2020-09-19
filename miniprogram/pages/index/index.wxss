@@ -96,23 +96,23 @@
   background: linear-gradient(#f9fefd, #fff);
   box-shadow: 0 6rpx 14rpx rgba(37, 219, 230, 0.15);
 }
-.index_nav navigator {
+.index_nav .index_nav_item {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.index_nav navigator .nav_ico_wrap {
+.index_nav .index_nav_item .nav_ico_wrap {
   width: 80rpx;
   height: 80rpx;
   overflow: hidden;
   margin-bottom: 8rpx;
 }
-.index_nav navigator .nav_ico_wrap .nav_ico_img {
+.index_nav .index_nav_item .nav_ico_wrap .nav_ico_img {
   width: 100%;
   height: 100%;
 }
-.index_nav navigator .nav_txt {
+.index_nav .index_nav_item .nav_txt {
   font-size: 28rpx;
 }

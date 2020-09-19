@@ -19,7 +19,8 @@ page .dis_tabs .tab_item {
 }
 page .dis_tabs .tab_active {
   border-bottom: 5rpx solid #ffe224;
-  color: #111;
+  color: #ffe224;
+  font-weight: 650;
   font-size: 34rpx;
 }
 page .dis_content_trends {
@@ -98,6 +99,9 @@ page .dis_content_trends .trends_item .item_btm .operation {
 page .dis_content_trends .trends_item .item_btm .operation .support {
   color: #888;
   font-size: 30rpx;
+}
+page .dis_content_trends .trends_item .item_btm .operation .icon-zan1 {
+  color: #ff0011;
 }
 page .dis_content_trends .trends_item .item_btm .operation text {
   color: #888;

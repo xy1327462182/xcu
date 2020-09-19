@@ -1,5 +1,6 @@
 //获取数据库引用
 const db=wx.cloud.database()
+var app = getApp()
 
 import {request} from "../../request/index.js";
 import {getSetting,openSetting} from "../../utils/asyncWx.js";
@@ -113,6 +114,32 @@ Page({
           goodsList
         })
       })
+  },
+
+  //导航栏跳转点击
+  handelNavItemTap(e){
+    let that = this
+    //拿到索引和url 分不同情况跳转
+    let {index,url} = e.currentTarget.dataset
+    if (index==0) {
+      getApp().globalData.urlQuery = {
+        nowTabContent: 0
+      }
+      wx.switchTab({
+        url: '/pages/discover/index',
+      })
+    } else if (index==1) {
+      wx.switchTab({
+        url: '/pages/reward/index',
+      })
+    } else if (index==2) {
+      getApp().globalData.urlQuery = {
+        nowTabContent: 1
+      }
+      wx.switchTab({
+        url: '/pages/discover/index',
+      })
+    }
   },
 
 

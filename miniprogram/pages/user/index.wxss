@@ -133,9 +133,6 @@ page .tools_item_wrap .timetable_wrap .timetable_content .none_timetable_wrap {
   font-size: 30rpx;
   color: #666;
 }
-page .tools_item_wrap .timetable_wrap .timetable_content .none_timetable_wrap view {
-  margin: 10rpx 0;
-}
 page .tools_item_wrap .timetable_wrap .timetable_content .none_timetable_img_wrap {
   flex: 1;
 }
@@ -159,4 +156,7 @@ page .tools_item_wrap .btm_tools_tab .btm_tools_item {
 page .tools_item_wrap .btm_tools_tab .btm_tools_item .btm_tools_name_wrap .btm_tools_name {
   margin-left: 30rpx;
   font-size: 34rpx;
+}
+page .tools_item_wrap .btm_tools_tab .btm_tools_item .btm_tools_name_wrap .iconfont {
+  font-size: 32rpx;
 }

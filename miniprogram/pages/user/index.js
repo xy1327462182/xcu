@@ -37,13 +37,17 @@ Page({
         icoPath: 'cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/indexNav/去兼职.png',
         linkPath: "/pages/myReward/index"
       },
-    ]
+    ],
+    oneTrend: {}
   },
 
   //获取用户信息 实现注册/登录
   async handelGetUserInfo(e){
     let that=this
     let {errMsg}=e.detail
+    wx.showLoading({
+      title: '登录中',
+    })
     if (errMsg==='getUserInfo:ok') {
       //用户授权了
       //调用云函数login 获取openid
@@ -86,15 +90,21 @@ Page({
               wx.setStorageSync('collectionList', collectionList)
 
               that.getLoginInfo()
+              wx.hideLoading()
             })
         }
       })
     } else if (errMsg==='getUserInfo:fail auth deny') {
-      //用户取消授权了
-      wx.showToast({
-        title: '登录失败',
-        icon: "none"
+      wx.hideLoading({
+        success: (res) => {
+          //用户取消授权了
+          wx.showToast({
+            title: '登录失败',
+            icon: "none"
+          })
+        },
       })
+      
     }
   },
 
@@ -126,12 +136,30 @@ Page({
     }
   },
 
+  async getOneTrends(){
+    //获取_openid
+    let {_openid} = this.data.uInfo
+    //查询当前用户的最近一条动态数据
+    let res1 = await db.collection('xcu_trends').orderBy('createTime','desc').limit(1).where({
+      data: {
+        _openid
+      }
+    }).get()
+    let oneTrend = res1.data[0]
+    this.setData({
+      oneTrend
+    })
+  },
+
   
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    //获取数据
+    this.getLoginInfo()
+    //查询一条最近动态
+    this.getOneTrends()
   },
 
   /**
@@ -145,7 +173,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getLoginInfo()
+    
   },
 
   /**

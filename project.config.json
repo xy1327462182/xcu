@@ -1,187 +1,198 @@
 {
-	"miniprogramRoot": "miniprogram/",
-	"cloudfunctionRoot": "cloudfunctions/",
-	"setting": {
-		"urlCheck": true,
-		"es6": true,
-		"enhance": true,
-		"postcss": true,
-		"preloadBackgroundData": false,
-		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"nodeModules": false,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"uglifyFileName": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"compileHotReLoad": false,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"useIsolateContext": true,
-		"useCompilerModule": true,
-		"userConfirmedUseCompilerModuleSwitch": false
-	},
-	"appid": "wx8a8a49e8b91e0a7b",
-	"projectname": "xcu",
-	"libVersion": "2.8.1",
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": 0,
-			"list": [
-				{
-					"id": -1,
-					"name": "db guide",
-					"pathName": "pages/databaseGuide/databaseGuide",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "发现页",
-					"pathName": "pages/discover/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "我的",
-					"pathName": "pages/user/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "用户设置",
-					"pathName": "pages/userSetting/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "天气页",
-					"pathName": "pages/weatherPage/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "发布页",
-					"pathName": "pages/publish/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "发布商品页",
-					"pathName": "pages/publishGoods/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "商品详情页",
-					"pathName": "pages/goodsDetails/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "选择地址",
-					"pathName": "pages/addAddress/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "我的收藏夹",
-					"pathName": "pages/myCollections/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 10,
-					"name": "pay页",
-					"pathName": "pages/pay/index",
-					"query": "id=350d8cf95f607a8d0003e89452bf56bc",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "我的订单页",
-					"pathName": "pages/myOrders/index",
-					"query": "id=350d8cf95f607a8d0003e89452bf56bc",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "我的商品页",
-					"pathName": "pages/myGoods/index",
-					"query": "id=350d8cf95f607a8d0003e89452bf56bc",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "发布兼职页",
-					"pathName": "pages/publishReward/index",
-					"query": "id=350d8cf95f607a8d0003e89452bf56bc",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "兼职大厅页",
-					"pathName": "pages/reward/index",
-					"query": "id=350d8cf95f607a8d0003e89452bf56bc",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "我的兼职页",
-					"pathName": "pages/myReward/index",
-					"query": "id=350d8cf95f607a8d0003e89452bf56bc",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "职位详情页",
-					"pathName": "pages/rewradDetails/index",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "发布动态页",
-					"pathName": "pages/publishTrends/index",
-					"scene": null
-				}
-			]
-		}
-	}
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": []
+  },
+  "appid": "wx8a8a49e8b91e0a7b",
+  "projectname": "xcu",
+  "libVersion": "2.8.1",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "plugin": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "current": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": 0,
+      "list": [
+        {
+          "id": -1,
+          "name": "db guide",
+          "pathName": "pages/databaseGuide/databaseGuide",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "发现页",
+          "pathName": "pages/discover/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的",
+          "pathName": "pages/user/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "用户设置",
+          "pathName": "pages/userSetting/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "天气页",
+          "pathName": "pages/weatherPage/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "发布页",
+          "pathName": "pages/publish/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "发布商品页",
+          "pathName": "pages/publishGoods/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "商品详情页",
+          "pathName": "pages/goodsDetails/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "选择地址",
+          "pathName": "pages/addAddress/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的收藏夹",
+          "pathName": "pages/myCollections/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 10,
+          "name": "pay页",
+          "pathName": "pages/pay/index",
+          "query": "id=350d8cf95f607a8d0003e89452bf56bc",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的订单页",
+          "pathName": "pages/myOrders/index",
+          "query": "id=350d8cf95f607a8d0003e89452bf56bc",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的商品页",
+          "pathName": "pages/myGoods/index",
+          "query": "id=350d8cf95f607a8d0003e89452bf56bc",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "发布兼职页",
+          "pathName": "pages/publishReward/index",
+          "query": "id=350d8cf95f607a8d0003e89452bf56bc",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "兼职大厅页",
+          "pathName": "pages/reward/index",
+          "query": "id=350d8cf95f607a8d0003e89452bf56bc",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的兼职页",
+          "pathName": "pages/myReward/index",
+          "query": "id=350d8cf95f607a8d0003e89452bf56bc",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "职位详情页",
+          "pathName": "pages/rewradDetails/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "发布动态页",
+          "pathName": "pages/publishTrends/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的动态页",
+          "pathName": "pages/myTrends/index",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

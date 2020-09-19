@@ -1,16 +1,14 @@
-<view class="dis_tabs">
-	<view class="tab_item {{item.isActive? 'tab_active':''}}" wx:for="{{disTabsList}}" wx:key="name" bindtap="handelTabChange" data-id="{{item.id}}">{{item.name}}</view>
+<view class="myTrends_hd">
+  <image src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/user/user_myTrends_bgc.jpg" class="myTrends_hd_bgc" mode="widthFix"></image>
+
+  <view class="myMsg_wrap">
+    <image class="avatar" src="{{trendsList[0].authorAvator}}"></image>
+    <view class="my_nickName">{{trendsList[0].authorNickName}}</view>
+  </view>
 </view>
 
-<view class="dis_content_goods" wx:if="{{nowTabContent==0}}">
-  <goodsList goodsList="{{goodsList}}"></goodsList>
-</view>
-
-
-<view class="dis_content_trends" wx:elif="{{nowTabContent==1}}">
-
-
-	<view class="trends_item"
+<view class="trends_content">
+  <view class="trends_item"
   wx:for="{{trendsList}}"
   wx:key="_id"
   >
@@ -35,11 +33,8 @@
       
     </view>
 		<view class="item_btm">
-      <view class="operation" bindtap="handeTrendsSupport" data-id="{{item._id}}" data-status="{{item.isZan}}" data-index="{{index}}">
-        <view class="support iconfont {{item.isZan?'icon-zan1':'icon-zan'}}" animation="{{animation}}"></view>
-        <text>{{item.supports}}</text>
-      </view>
+      <view class="del_trends" bindtap="handelDelTrends" data-id="{{item._id}}">删除</view>
+      <view class="operation"><text class="support">{{item.supports}}人点赞</text></view>
     </view>
 	</view>
-
 </view>

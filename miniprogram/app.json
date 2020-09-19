@@ -9,6 +9,7 @@
     "pages/myOrders/index",
     "pages/myGoods/index",
     "pages/myReward/index",
+    "pages/myTrends/index",
     "pages/userSetting/index",
     "pages/weatherPage/index",
     "pages/publishGoods/index",

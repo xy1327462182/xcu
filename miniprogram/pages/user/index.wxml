@@ -65,17 +65,18 @@
 
   </view>
 
-  <!-- 课表 -->
+  <!-- 我的动态 -->
   <view class="timetable_wrap">
-    <view class="timetable_title">我的课表</view>
-    <view class="timetable_date">9月2日 今天共4门课</view>
+    <view class="timetable_title">我的最近动态</view>
+    <view class="timetable_date">{{oneTrend.createTime}}</view>
     <view class="timetable_content">
+
       <view class="none_timetable_wrap">
-        <view>今天和明天都没有课哦</view>
-        <view>做一些自己喜欢的事充实一下吧</view>
+        {{oneTrend.trendsInfoTxt}}
       </view>
+
       <view class="none_timetable_img_wrap">
-        <image class="none_timetable_img" mode="widthFix"  src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/avatar.jpg"></image>
+        <image class="none_timetable_img" mode="widthFix"  src="{{oneTrend.imgIdArr[0]}}"></image>
       </view>
       
     </view>
@@ -83,20 +84,24 @@
 
   <!-- 底部功能栏 -->
   <view class="btm_tools_tab">
-    <navigator class="btm_tools_item">
+    <navigator class="btm_tools_item"
+    url="/pages/myTrends/index?id={{uInfo._openid}}"
+    >
       <view class="btm_tools_name_wrap">
-        <text class="iconfont icon-zhifu-01"></text>
-        <text class="btm_tools_name">签到领钱</text>
+        <text class="iconfont icon-xiangji1"></text>
+        <text class="btm_tools_name">我的动态</text>
       </view>
       <view class="btm_tools_arrow iconfont icon-iconzhengli_fenxiang"></view>
     </navigator>
+
     <navigator class="btm_tools_item">
       <view class="btm_tools_name_wrap">
-        <text class="iconfont icon-zhifu-01"></text>
-        <text class="btm_tools_name">签到领钱</text>
+        <text class="iconfont icon-kefu"></text>
+        <text class="btm_tools_name">联系客服</text>
       </view>
       <view class="btm_tools_arrow iconfont icon-iconzhengli_fenxiang"></view>
     </navigator>
+    
     
   </view>
 </view>

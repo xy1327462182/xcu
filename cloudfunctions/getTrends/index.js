@@ -8,9 +8,11 @@ let db=cloud.database()
 exports.main = async (event, context) => {
   let skip = event.skip
   let num = event.num
+  
   if (num) {
     //拼接查询
     let res = await db.collection('xcu_trends').skip(skip).limit(num).get()
     return res
   }
+  
 }

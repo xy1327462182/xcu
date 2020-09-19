@@ -41,17 +41,19 @@
 
 <!-- 导航部分 -->
 <view class="index_nav">
-  <navigator 
+  <view 
   wx:for="{{indexNavList}}"
   wx:key="name"
-  url="{{item.linkPath}}"
-  open-type="switchTab"
+  data-url="{{item.linkPath}}"
+  data-index="{{index}}"
+  bindtap="handelNavItemTap"
+  class="index_nav_item"
   >
     <view class="nav_ico_wrap">
       <image src="{{item.icoPath}}" class="nav_ico_img"></image>
     </view>
     <view class="nav_txt">{{item.name}}</view>
-  </navigator>
+  </view>
 </view>
 
 <!-- 楼层模块 -->
