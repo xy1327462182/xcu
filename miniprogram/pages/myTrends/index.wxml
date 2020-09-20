@@ -34,7 +34,7 @@
       
     </view>
 		<view class="item_btm">
-      <view class="del_trends" bindtap="handelDelTrends" data-id="{{item._id}}" data-indexnum="{{index}}">删除</view>
+      <view class="del_trends" catchtap="handelDelTrends" data-id="{{item._id}}" data-indexnum="{{index}}">删除</view>
       <view class="operation"><text class="support">{{item.supports}}人点赞</text></view>
     </view>
 	</navigator>
