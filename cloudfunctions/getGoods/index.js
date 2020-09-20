@@ -10,6 +10,6 @@ exports.main = async (event, context) => {
   let skip = event.skip
   let num = event.num
 
-  let res = await db.collection('xcu_goods').skip(skip).limit(num).get()
+  let res = await db.collection('xcu_goods').orderBy('createTime','desc').skip(skip).limit(num).get()
   return res
 }

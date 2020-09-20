@@ -13,35 +13,20 @@ Page({
     wx.showLoading({
       title: '拼命加载中',
     })
-    //获取当前用户登录信息
+    //获取当前用户登录信息 获取缓存中的收藏夹数据
     let _openid=wx.getStorageSync('userLogin')._openid
     let collectionList = wx.getStorageSync('collectionList') || []
     if (collectionList.length > 0) {
       //优先取缓存的数据 再将缓存中的数据存入数据库
-      //此时用户从其他任页面进来
       this.setData({
         collectionList
       })
       // 将数据存入数据库
-      wx.cloud.callFunction({
+      await wx.cloud.callFunction({
         name: "updateUserInfo",
         data: {
           collectionList,
           _openid
-        }
-      })
-    } else {
-      //用户刚登录，缓存中没有收藏数据
-      //从数据库中查询数据 渲染页面 并将数据存到缓存中
-      wx.cloud.callFunction({
-        name: "getUserInfo",
-        data: {
-          _openid
-        },
-        success: (res2)=>{
-          that.setData({
-            collectionList: res2.result.data[0].collectionList
-          })
         }
       })
     }
@@ -52,7 +37,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getCollectionDate()
+    
+    
   },
 
   /**
@@ -66,7 +52,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    //获取用户登录信息
+    let _openid = wx.getStorageSync('userLogin')._openid
+    if (!_openid) {
+      //没登录
+      
+      return
+    }
+    this.getCollectionDate()
   },
 
   /**

@@ -47,7 +47,7 @@
 
   <!-- 底部工具 -->
   <view class="btm_tools">
-    <view class="buy" bindtap="handelBuy">立即购买</view>
+    <view class="buy" bindtap="handelBuy">立即下单</view>
     <view class="price_box">
       实际价格：<text class="price_num">￥{{goodInfo.goodsPrice}}</text>
     </view>

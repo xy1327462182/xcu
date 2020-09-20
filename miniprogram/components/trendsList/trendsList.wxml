@@ -4,58 +4,37 @@
 		<!-- 左侧 -->
 		<view class="tr_content_item">
 
-			<navigator class="tr_item">
+			<navigator 
+			class="tr_item"
+			wx:for="{{trendsList}}"
+			wx:key="_id"
+			url="/pages/trendsDetails/index?id={{item._id}}"
+			wx:if="{{index%2==0}}"
+			>
 				<!-- 图片 -->
 				<view class="tr_item_img_wrap">
-					<image mode="widthFix" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/indexTrends/微信图片_20200831171148.jpg"></image>
+					<image mode="widthFix" src="{{item.imgIdArr[0]}}"></image>
 				</view>
 				<!-- 标题 -->
-				<view class="tr_item_title">晓看天色暮云啊晓看天色暮云啊晓看天色暮云啊晓看天色暮云啊</view>
+				<view class="tr_item_title">{{item.trendsInfoTxt}}</view>
 				<!-- 标签 -->
-				<view class="tr_item_notes">
+				<!-- <view class="tr_item_notes">
 					<text>#摄影美图分享#</text>
 					<text>#美食分享#</text>
 					<text>#生活娱乐#</text>
-				</view>
+				</view> -->
 				<!-- 作者 -->
 				<view class="tr_item_author_wrap">
 					<view class="author_avatar_wrap">
 						<view class="author_avatar">
-							<image src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/avatar.jpg"></image>
+							<image src="{{item.authorAvator}}"></image>
 						</view>
-						<text class="author_name">带你遇见</text>
+						<text class="author_name">{{item.authorNickName}}</text>
 					</view>
 
 					<view class="support_wrap">
-						<text class="iconfont icon-shoucang1"></text>
-						<text class="support_num">10</text>
-					</view>
-				</view>
-			</navigator>
-
-			<navigator class="tr_item">
-				<!-- 图片 -->
-				<view class="tr_item_img_wrap">
-					<image mode="widthFix" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/indexTrends/微信图片_20200831171144.jpg"></image>
-				</view>
-				<!-- 标题 -->
-				<view class="tr_item_title">晓看天色暮云啊</view>
-				<!-- 便签 -->
-				<view class="tr_item_notes">
-					<text>#摄影美图分享#</text>
-				</view>
-				<!-- 作者 -->
-				<view class="tr_item_author_wrap">
-					<view class="author_avatar_wrap">
-						<view class="author_avatar">
-							<image src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/avatar.jpg"></image>
-						</view>
-						<text class="author_name">带你遇见</text>
-					</view>
-
-					<view class="support_wrap">
-						<text class="iconfont icon-shoucang1"></text>
-						<text class="support_num">10</text>
+						<text class="iconfont icon-zan"></text>
+						<text class="support_num">{{item.supports}}</text>
 					</view>
 				</view>
 			</navigator>
@@ -64,63 +43,42 @@
 
 		<!-- 右侧 -->
 		<view class="tr_content_item">
-			<navigator class="tr_item">
+
+			<navigator 
+			class="tr_item"
+			wx:for="{{trendsList}}"
+			wx:key="_id"
+			url="/pages/trendsDetails/index?id={{item._id}}"
+			wx:if="{{index%2==1}}"
+			>
 				<!-- 图片 -->
 				<view class="tr_item_img_wrap">
-					<image mode="widthFix" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/indexTrends/微信图片_20200831171144.jpg"></image>
+					<image mode="widthFix" src="{{item.imgIdArr[0]}}"></image>
 				</view>
 				<!-- 标题 -->
-				<view class="tr_item_title">晓看天色暮云啊</view>
-				<!-- 便签 -->
-				<view class="tr_item_notes">
-					<text>#摄影美图分享#</text>
-				</view>
-				<!-- 作者 -->
-				<view class="tr_item_author_wrap">
-					<view class="author_avatar_wrap">
-						<view class="author_avatar">
-							<image src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/avatar.jpg"></image>
-						</view>
-						<text class="author_name">带你遇见</text>
-					</view>
-
-					<view class="support_wrap">
-						<text class="iconfont icon-shoucang1"></text>
-						<text class="support_num">10</text>
-					</view>
-				</view>
-			</navigator>
-
-      <navigator class="tr_item">
-				<!-- 图片 -->
-				<view class="tr_item_img_wrap">
-					<image mode="widthFix" src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/indexTrends/微信图片_20200831171148.jpg"></image>
-				</view>
-				<!-- 标题 -->
-				<view class="tr_item_title">晓看天色暮云啊晓看天色暮云啊晓看天色暮云啊晓看天色暮云啊</view>
+				<view class="tr_item_title">{{item.trendsInfoTxt}}</view>
 				<!-- 标签 -->
-				<view class="tr_item_notes">
+				<!-- <view class="tr_item_notes">
 					<text>#摄影美图分享#</text>
 					<text>#美食分享#</text>
 					<text>#生活娱乐#</text>
-				</view>
+				</view> -->
 				<!-- 作者 -->
 				<view class="tr_item_author_wrap">
 					<view class="author_avatar_wrap">
 						<view class="author_avatar">
-							<image src="cloud://yang-g4cqy.7961-yang-g4cqy-1302846490/xcu/index/test/avatar.jpg"></image>
+							<image src="{{item.authorAvator}}"></image>
 						</view>
-						<text class="author_name">带你遇见</text>
+						<text class="author_name">{{item.authorNickName}}</text>
 					</view>
 
 					<view class="support_wrap">
-						<text class="iconfont icon-shoucang1"></text>
-						<text class="support_num">10</text>
+						<text class="iconfont icon-zan"></text>
+						<text class="support_num">{{item.supports}}</text>
 					</view>
 				</view>
 			</navigator>
+			
 		</view>
-
-
 	</view>
 </view>

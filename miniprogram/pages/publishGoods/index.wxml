@@ -1,7 +1,7 @@
 <!-- 头部 -->
 <view class="pGoods_hd">
 	<view class="cancel" bindtap="cancelHandel" >取消</view>
-	<view class="p_title">发布</view>
+	<view class="p_title">发布商品</view>
 	<view class="p_publish" bindtap="publish">发布</view>
 </view>
 <!-- 文本域部分 -->

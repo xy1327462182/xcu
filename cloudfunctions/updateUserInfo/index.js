@@ -20,7 +20,7 @@ exports.main = async (event, context) => {
       }
     })
   }
-  //新建订单信心
+  //新建订单信息
   if (newOrder) {
     await db.collection('xcu_userInfo').where({
       _openid

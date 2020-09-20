@@ -6,11 +6,14 @@ let db = cloud.database()
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-  let _id = event._id
+  const _id = event._id
+  const fileIDs = event.fileIDs
   //根据id删除动态数据
   if (_id) {
-    return await db.collection('xcu_trends').doc(_id).remove() 
+    await db.collection('xcu_trends').doc(_id).remove()
+    const result = await cloud.deleteFile({
+      fileList: fileIDs,
+    })
+    return result.fileList
   }
-
-  
 }

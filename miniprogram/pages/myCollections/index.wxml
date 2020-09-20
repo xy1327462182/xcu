@@ -21,11 +21,10 @@
 		</view>
 	</block>
 
-	<view class="none_goods" wx:else>
+	<block wx:else>
+		<view class="none_goods">
 		还没有商品哦！
-	</view>
-</view>
-
-<view class="btm_tools">
-
+		</view>
+	</block>
+	
 </view>

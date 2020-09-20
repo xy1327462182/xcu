@@ -1,8 +1,5 @@
 //获取数据库引用
 const db=wx.cloud.database()
-const xcuUserInfo=db.collection('xcu_userInfo')
-
-const app=getApp()
 
 // pages/user/index.js
 Page({
@@ -41,10 +38,12 @@ Page({
     oneTrend: {}
   },
 
+  
+
   //获取用户信息 实现注册/登录
   async handelGetUserInfo(e){
     let that=this
-    let {errMsg}=e.detail
+    let {errMsg,userInfo} = e.detail
     wx.showLoading({
       title: '登录中',
     })
@@ -54,44 +53,12 @@ Page({
       await wx.cloud.callFunction({
         name: "login",
         data: {},
-        success:res1=>{
+        success: res1=>{
           //获取openid
-          let uid=res1.result.openid
-          //数据库查找该用户
-          xcuUserInfo.where({
-            _openid: uid
-          }).get()
-            .then(res2=>{
-              //用户没注册过  获取信息 添加到数据库
-              if (res2.data.length===0) {
-                //用户没注册过 
-                  //获取信息 添加到数据库
-                let data={}
-                data=e.detail.userInfo
-                data._openid=uid
-                data.fans=1
-                data.follow=0
-                data.supports=0
-                //添加到数据库
-                wx.cloud.callFunction({
-                  name: "addUserInfo",
-                  data: data
-                })
-              }
-              //将用户登录数据存储到本地存储
-              let login={
-                _openid:uid
-              }
-              wx.setStorageSync('userLogin', login)
-              //将用户openid存到公共数据中
-              getApp().globalData.openid = uid;
-              //将用户收藏夹数据存到缓存中
-              let collectionList = res2.data[0].collectionList
-              wx.setStorageSync('collectionList', collectionList)
-
-              that.getLoginInfo()
-              wx.hideLoading()
-            })
+          let _openid=res1.result.openid
+          //查询数据库是否存在该用户 如果没有，则存储
+          that.addUserInfo(_openid,userInfo)
+          wx.hideLoading()
         }
       })
     } else if (errMsg==='getUserInfo:fail auth deny') {
@@ -108,46 +75,74 @@ Page({
     }
   },
 
-  //获取缓存中的登录信息 设置到app.globalData中
-  getLoginInfo(){
-    let that=this
-    let res=wx.getStorageSync('userLogin')
-    //如果缓存中有
-    if (res._openid) {
-      //是登录状态
-      //从数据库中查询数据
-      wx.cloud.callFunction({
-        name: "getUserInfo",
-        data: {
-          _openid: res._openid
-        },
-        success:data=>{
-          let uInfo=data.result.data[0]
-          app.globalData.uInfo=uInfo
-          that.setData({
-            uInfo
-          })
-        }
+  //存储用户信息
+  async addUserInfo(_openid,userInfo){
+    let that = this
+    let uInfo = {}
+    //获取用户信息
+    let res1 = await db.collection('xcu_userInfo').where({
+      _openid
+    }).get()
+    
+    //用户没注册过  获取信息 添加到数据库
+    if (res1.data.length===0) {
+      //初始化用户信息
+      uInfo = userInfo
+      uInfo._openid = _openid
+      uInfo.collectionList = []
+      uInfo.myOrder = []
+      //添加到数据库
+      await wx.cloud.callFunction({
+        name: "addUserInfo",
+        data: uInfo
       })
     } else {
-      that.setData({
-        uInfo: null
-      })
+      uInfo = res1.data[0]
     }
+    //将登录信息缓存到本地存储
+    wx.setStorageSync('userLogin', uInfo)
+    //将用户收藏夹数据存到缓存中
+    let collectionList = uInfo.collectionList
+    wx.setStorageSync('collectionList', collectionList)
+    that.setData({
+      uInfo: uInfo
+    })
+    that.getOneTrends(_openid)
   },
 
-  async getOneTrends(){
-    //获取_openid
-    let {_openid} = this.data.uInfo
+  //获取最近一条动态
+  async getOneTrends(_openid){
     //查询当前用户的最近一条动态数据
-    let res1 = await db.collection('xcu_trends').orderBy('createTime','desc').limit(1).where({
-      data: {
-        _openid
-      }
-    }).get()
+    let res1 = await db.collection('xcu_trends').where({
+      authorOpenId:_openid
+    }).orderBy('createTime','desc').limit(1).get()
     let oneTrend = res1.data[0]
     this.setData({
       oneTrend
+    })
+  },
+
+  //登出
+  async handelLogout(){
+    let uInfo = wx.getStorageSync('userLogin')
+    if (!uInfo._openid) {
+      await wx.showToast({
+        title: '您还未登录',
+        icon: 'none',
+        mask: true
+      })
+      return
+    }
+    wx.removeStorageSync('userLogin')
+    getApp().globalData.uInfo=null
+    this.setData({
+      uInfo: null,
+      oneTrend: null
+    })
+    wx.showToast({
+      title: '注销成功',
+      icon: 'success',
+      mask: true
     })
   },
 
@@ -156,10 +151,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //获取数据
-    this.getLoginInfo()
-    //查询一条最近动态
-    this.getOneTrends()
   },
 
   /**

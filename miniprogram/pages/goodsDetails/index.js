@@ -39,6 +39,10 @@ Page({
       comments
     })
     wx.hideLoading()
+    //是否显示点赞
+    that.isShowZan(id)
+    //是否显示收藏
+    that.isShowCollection(id)
   },
   //是否登录
   isLogin(){
@@ -80,6 +84,16 @@ Page({
     })
   },
 
+  //预览大图
+  handelPicTap(e){
+    let imgList=this.data.goodsMsg.imgIdArr
+    let src = e.currentTarget.dataset.src
+    wx.previewImage({
+      urls: imgList,
+      current: src
+    })
+  },
+
   //输入框失去焦点
   iptBlur(e){
     let {value}=e.detail
@@ -91,6 +105,11 @@ Page({
   async handelAddTap(){
     let that = this
     if (!that.isLogin()) {
+      await wx.showToast({
+        title: '还未登录',
+        icon: 'none',
+        mask: true
+      })
       return 
     }
     
@@ -187,6 +206,21 @@ Page({
     }
     //获取缓存中的数据
     let collectionList = wx.getStorageSync('collectionList') || []
+    //看本商品原来在不在缓存数组中
+    if (collectionList.indexOf(goodObj) != -1) {
+      //有 只改变前端状态
+      isCollection = !isCollection
+      this.setData({
+        isCollection
+      })
+      await wx.showToast({
+        title: '收藏成功',
+        icon: 'success'
+      })
+      return
+    }
+
+
     if (!isCollection) {
       //要收藏 将本商品数据存入数组
       collectionList.unshift(goodObj)
@@ -223,10 +257,7 @@ Page({
     let id=options.id
     //获取当前商品数据
     that.getGoodsData(id)
-    //是否显示点赞
-    that.isShowZan(id)
-    //是否显示收藏
-    that.isShowCollection(id)
+    
   },
 
   /**

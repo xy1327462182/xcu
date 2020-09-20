@@ -30,6 +30,8 @@
 			<image 
 			wx:for="{{goodsMsg.imgIdArr}}"
 			wx:key="index"
+			bindtap="handelPicTap"
+			data-src="{{item}}"
 			src="{{item}}" mode="widthFix" class="goods_img"></image>
 		</view>
 
@@ -41,7 +43,7 @@
 
 			<view class="author_info_wrap">
 				<view class="author_name">{{nickName}}</view>
-				<view class="author_info_txt">{{nickName}}，共售卖99件商品啦，看上了快快预定哦！</view>
+				<view class="author_info_txt">{{nickName}}：看上了快快预定哦！</view>
 			</view>
 
 			<view class="author_avator">

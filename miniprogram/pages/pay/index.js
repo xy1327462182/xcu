@@ -41,7 +41,7 @@ Page({
     }
     return true
   },
-  //事件格式装换
+  //时间格式装换
   formatDate(date) {
     var date = new Date(date);
     var YY = date.getFullYear() + '-';
@@ -127,7 +127,7 @@ Page({
       })
       wx.hideLoading()
       await wx.showToast({
-        title: '购买成功',
+        title: '下单成功',
         icon: 'success',
       })
       //创建订单 存入数据库

@@ -10,9 +10,10 @@
 <view class="dis_content_trends" wx:elif="{{nowTabContent==1}}">
 
 
-	<view class="trends_item"
+	<navigator class="trends_item"
   wx:for="{{trendsList}}"
   wx:key="_id"
+  url="/pages/trendsDetails/index?id={{item._id}}"
   >
 		<view class="item_author_wrap">
 			<view class="author_avatar_wrap">
@@ -35,11 +36,11 @@
       
     </view>
 		<view class="item_btm">
-      <view class="operation" bindtap="handeTrendsSupport" data-id="{{item._id}}" data-status="{{item.isZan}}" data-index="{{index}}">
+      <view class="operation" catchtap="handeTrendsSupport" data-id="{{item._id}}" data-status="{{item.isZan}}" data-index="{{index}}">
         <view class="support iconfont {{item.isZan?'icon-zan1':'icon-zan'}}" animation="{{animation}}"></view>
         <text>{{item.supports}}</text>
       </view>
     </view>
-	</view>
+	</navigator>
 
 </view>

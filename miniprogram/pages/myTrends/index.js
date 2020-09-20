@@ -24,7 +24,7 @@ Page({
   async handelDelTrends(e){
     let that = this
     //获取索引和id
-    let {id}=e.currentTarget.dataset
+    let {id,indexnum}=e.currentTarget.dataset
     let res1 = await wx.showModal({
       title: '提示',
       content: '确定删除吗？',
@@ -35,13 +35,18 @@ Page({
         title: '删除中',
         mask: true
       })
+      //获取当前动态的图片数组
+      let fileIDs = that.data.trendsList[indexnum].imgIdArr
+      console.log(fileIDs)
       //删除数据库中的数据
-      await wx.cloud.callFunction({
+      let ss = await wx.cloud.callFunction({
         name: "delTrends",
         data: {
-          _id: id
+          _id: id,
+          fileIDs
         }
       })
+      console.log(ss)
       wx.showToast({
         title: '删除成功',
         icon: 'success',

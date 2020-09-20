@@ -13,14 +13,17 @@
         <view class="order_method">线下自提</view>
       </view>
       <!-- 主体 -->
-      <view class="order_item_bd">
+      <navigator 
+      class="order_item_bd"
+      url="/pages/goodsDetails/index?id={{item.goodsInfo._id}}"
+      >
         <view class="goods_img_wrap">
           <image class="goods_img" src="{{item.goodsInfo.imgIdArr[0]}}"></image>
         </view>
         <view class="goods_info_wrap">
           {{item.goodsInfo.goodsInfoTxt}}
         </view>
-      </view>
+      </navigator>
       <!-- 底部 -->
       <view class="order_item_btm">
         <view class="order_time">{{item.orderDate}}</view>

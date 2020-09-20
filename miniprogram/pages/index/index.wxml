@@ -58,8 +58,8 @@
 
 <!-- 楼层模块 -->
 <view class="floor_wrap">
-  
-
   <!-- 优质二手商品 -->
   <goodsList goodsList="{{goodsList}}"></goodsList>
+  <!-- 优质动态 -->
+  <trendsList trendsList="{{trendsList}}"></trendsList>
 </view>  

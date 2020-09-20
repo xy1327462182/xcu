@@ -1,8 +1,9 @@
 {
   "usingComponents": {
-    "searchInput": "../../components/searchInput/searchInput",
     "trendsList": "../../components/trendsList/trendsList",
     "goodsList": "../../components/goodsList/goodsList"
   },
-  "navigationBarTitleText": "许院生活"
+  "navigationBarTitleText": "许院生活",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }

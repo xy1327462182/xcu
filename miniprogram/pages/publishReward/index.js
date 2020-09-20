@@ -66,8 +66,25 @@ Page({
       contact
     })
   },
+
+  //是否登录
+  isLogin(){
+    //如果没登录则禁止行为
+    let uid = wx.getStorageSync('userLogin')._openid
+    if (!uid) {
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none'
+      })
+      return false
+    }
+    return true
+  },
   async publishReward(){
     let that = this
+    if (!that.isLogin()) {
+      return 
+    }
     let data = this.data
     //过滤空表单
     for (let key in data) {

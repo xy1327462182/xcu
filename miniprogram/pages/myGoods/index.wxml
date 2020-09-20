@@ -35,7 +35,9 @@
       <view class="createTime">{{item.createTime}}</view>
       <view class="g_btm_tools">
         
-        <view class="tools_item del_goods" bindtap="handelDelGoods" data-id="{{item._id}}">删除商品</view>
+        <view class="tools_item del_goods" bindtap="handelDelGoods" data-id="{{item._id}}"
+        data-indexnum="{{index}}"
+        >删除商品</view>
         <view class="tools_item" wx:if="{{item.status!='已售'}}" bindtap="handelSold" data-id="{{item._id}}">我已卖出</view>
         <view class="tools_item" wx:if="{{item.status=='已售'}}" bindtap="handelSell" data-id="{{item._id}}">重新上架</view>
       </view>

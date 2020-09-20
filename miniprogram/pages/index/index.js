@@ -16,7 +16,8 @@ Page({
     weatherMsg: null,
     city: '',
     locationId: '',
-    goodsList: []
+    goodsList: [],
+    trendsList: []
   },
 
   /**
@@ -104,16 +105,30 @@ Page({
       })
     }
   },
-  //获取商品信息
-  getGoodsDate(){
+  //获取商品、动态信息
+  async getGoodsDate(){
     let that = this
-    db.collection('xcu_goods').limit(15).get()
-      .then(res1=>{
-        let goodsList = res1.data 
-        that.setData({
-          goodsList
-        })
-      })
+    let res1 = await db.collection('xcu_goods').orderBy('createTime','desc').limit(10).get()
+    let goodsList = res1.data
+    that.setData({
+      goodsList
+    })
+    wx.stopPullDownRefresh()
+    wx.hideLoading()
+  },
+
+  //获取动态信息
+  async getTrendsData(){
+    wx.showLoading({
+      title: '拼命加载中',
+    })
+    let that = this
+    let res2 = await db.collection('xcu_trends').orderBy('createTime','desc').limit(10).get()
+    let trendsList = res2.data
+    that.setData({
+      trendsList
+    })
+    wx.hideLoading()
   },
 
   //导航栏跳转点击
@@ -125,21 +140,14 @@ Page({
       getApp().globalData.urlQuery = {
         nowTabContent: 0
       }
-      wx.switchTab({
-        url: '/pages/discover/index',
-      })
-    } else if (index==1) {
-      wx.switchTab({
-        url: '/pages/reward/index',
-      })
     } else if (index==2) {
       getApp().globalData.urlQuery = {
         nowTabContent: 1
       }
-      wx.switchTab({
-        url: '/pages/discover/index',
-      })
     }
+    wx.switchTab({
+      url: url,
+    })
   },
 
 
@@ -175,14 +183,17 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    
+    this.getGoodsDate()
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    
+    wx.showLoading({
+      title: '拼命加载中',
+    })
+    this.getTrendsData()
   },
 
   /**

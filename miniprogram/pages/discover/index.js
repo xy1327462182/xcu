@@ -40,7 +40,11 @@ Page({
       goodsList: [],
       skip: 0
     })
-    this.getGoodsData(6,0)
+    this.getGoodsData(6)
+    //设置公共数据 保存当前位置
+    getApp().globalData.urlQuery = {
+      nowTabContent: id
+    }
   },
 
   //获取商品数据或者动态数据
@@ -135,6 +139,7 @@ Page({
         trendsList,
         isGetData: false
       })
+      wx.stopPullDownRefresh()
     }
     
     wx.hideLoading()
@@ -208,6 +213,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    //获取公共数据中的当前页位置
     if (!getApp().globalData.urlQuery) {
       //如果公共数据没有参数，则默认请求商品数据
       this.getGoodsData()
@@ -225,20 +245,6 @@ Page({
       nowTabContent,
     })
     this.getGoodsData(6)
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
   },
 
   /**
@@ -263,6 +269,7 @@ Page({
     // skip置0
     this.setData({
       goodsList: [],
+      trendsList: []
     })
     this.getGoodsData(6)
   },

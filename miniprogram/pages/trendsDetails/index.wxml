@@ -1,0 +1,31 @@
+<view class="trends_item">
+		<view class="item_author_wrap">
+			<view class="author_avatar_wrap">
+        <image src="{{trendsItem.authorAvator}}" class="author_avatar"></image>
+      </view>
+      <view class="author_name_wrap">
+        <view class="author_name">{{trendsItem.authorNickName}}</view>
+        <view class="publish_time">{{trendsItem.createTime}}</view>
+      </view>
+		</view>
+		<view class="item_txt">{{trendsItem.trendsInfoTxt}}</view>
+		<view class="item_imgs">
+      <image 
+      mode="widthFix"
+      class="item_img {{trendsItem.imgIdArr.length == 1?'one_img':''}} {{trendsItem.imgIdArr.length == 2?'two_img':''}}" 
+      wx:for="{{trendsItem.imgIdArr}}"
+      wx:for-item="item2" 
+      wx:key="item2"
+      src="{{item2}}"
+      bindtap="handelPicTap"
+			data-src="{{item2}}"
+      ></image>
+      
+    </view>
+		<view class="item_btm">
+      <view class="operation" bindtap="handeTrendsSupport" data-id="{{trendsItem._id}}" data-status="{{trendsItem.isZan}}">
+        <view class="support iconfont {{trendsItem.isZan?'icon-zan1':'icon-zan'}}" animation="{{animation}}"></view>
+        <text>{{trendsItem.supports}}</text>
+      </view>
+    </view>
+	</view>

@@ -11,7 +11,7 @@ exports.main = async (event, context) => {
   
   if (num) {
     //拼接查询
-    let res = await db.collection('xcu_trends').skip(skip).limit(num).get()
+    let res = await db.collection('xcu_trends').orderBy('createTime','desc').skip(skip).limit(num).get()
     return res
   }
   

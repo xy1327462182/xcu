@@ -1,3 +1,4 @@
+import {formatDate} from "../../utils/formatDate.js";
 let db = wx.cloud.database()
 // pages/myGoods/index.js
 Page({
@@ -52,7 +53,7 @@ Page({
     let _openid = wx.getStorageSync('userLogin')._openid
     //查全部商品
     if (index==0) {
-      let res1 = await db.collection('xcu_goods').where({
+      let res1 = await db.collection('xcu_goods').orderBy('createTime','desc').where({
         authorOpenId: _openid
       }).get()
       let goodsList = res1.data
@@ -60,7 +61,7 @@ Page({
         goodsList
       })
     } else if (index==1) {
-      let res2 = await db.collection('xcu_goods').where({
+      let res2 = await db.collection('xcu_goods').orderBy('createTime','desc').where({
         authorOpenId: _openid,
         status: '已售'
       }).get()
@@ -69,7 +70,7 @@ Page({
         goodsList
       })
     } else if (index==2) {
-      let res3 = await db.collection('xcu_goods').where({
+      let res3 = await db.collection('xcu_goods').orderBy('createTime','desc').where({
         authorOpenId: _openid,
         status: '上架'
       }).get()
@@ -84,16 +85,23 @@ Page({
 
   //删除商品
   async handelDelGoods(e){
+    let that = this
     wx.showLoading({
       title: '删除中',
     })
-    //获取商品id
-    let _id = e.currentTarget.dataset.id
+    //获取商品id和索引
+    let {id,indexnum} = e.currentTarget.dataset
+    //获取当前商品图片数组
+    console.log(id,indexnum)
+    
+    let fileIDs = that.data.goodsList[indexnum].imgIdArr
+    console.log(fileIDs)
     //删除数据
     await wx.cloud.callFunction({
       name: "delGoods",
       data: {
-        _id
+        _id: id,
+        fileIDs
       }
     })
     wx.hideLoading()
@@ -119,7 +127,7 @@ Page({
       name: "updateGoods",
       data: {
         _id,
-        status: '已售'
+        status: '已售',
       }
     })
     wx.hideLoading()
@@ -144,7 +152,7 @@ Page({
       name: "updateGoods",
       data: {
         _id,
-        status: '上架'
+        status: '上架',
       }
     })
     await wx.hideLoading()
